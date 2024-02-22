@@ -63,7 +63,7 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <div id="gymBody" style =overflow-x:hidden;>
         <html:form action="/shainMstMntRegist" >
           <div style="float: left; width: 100%;">
             <div style="float: left; width: 804px; text-align: left; margin-left:100px;">
