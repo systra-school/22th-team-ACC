@@ -83,8 +83,7 @@
             <bean:write name="shukkinKibouKakuninForm" property="cntPage"/>/
             <bean:write name="shukkinKibouKakuninForm" property="maxPage"/>
             <div>
-              <table width="1100px" cellpadding="0" cellspacing="0">
-                <tr>
+              <table width="1390px" cellpadding="0" cellspacing="0">
                   <td width="150px" valign="top">
                     <table border="1" cellpadding="0" cellspacing="0">
                       <tr class="tblHeader">
