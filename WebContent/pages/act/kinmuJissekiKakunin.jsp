@@ -79,7 +79,7 @@ String color = "";
               </html:select>
             </div>
           </div>
-          <div style="width: 1088px; margin-left:100px;">
+          <div style="overflow: auto;  width: 1088px; margin-left:100px;">
             <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="50px" align="center">
@@ -135,7 +135,7 @@ String color = "";
                   }
                   %>
 
-                  <td width="30px" align="center" class='<%=color %>'">
+                  <td width="30px" align="center" class='<%=color %>'>
                     <bean:write name="kinmuJissekiNyuryokuKakuninList" property="youbi" /><br>
                   </td>
                   <td width="50px" align="center" style="vertical-align: middle;">
