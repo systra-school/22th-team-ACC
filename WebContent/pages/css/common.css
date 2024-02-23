@@ -17,12 +17,13 @@ errorbody {
 /*
 * �w�b�_�[�A�t�b�^�[���ʒ�`
 */
-#header,#gymBody,#footer {
+#header,#gymBody{
     width: 100%;
     margin: 0px;
     padding: 0; /*5px ->0(rin)*/
     background-color: #66CCFF;
 }
+
 
 /*
 * �w�b�_�[��`
@@ -61,35 +62,43 @@ errorbody {
 * �Ɩ�body��`
 */
 #gymBody {
-	position: fixed;/*追加(rin)*/
+	position: absolute;/*追加(rin)*/
     bottom: 0;/*追加(rin)*/
     left: 0;/*追加(rin)*/
     height: 95%;/*500px ->95%(rin)*/
     overflow: auto;
-    z-index: 1000;/*追加(rin)*/
+    
 }
 
 /*
 * �t�b�^�[��`
 */
 #footer {
-    bottom:0 1%;
-    height: 90px;
-    
+	position: absolute;/*追加(rin)*/
+	width: 100%;/*移動(rin)*/
+    margin: 0px;/*移動(rin)*/
+    padding: 0; /*移動&5px ->0(rin)*/
+    background-color: #66CCFF;	
+    bottom:200px;/*1% ->200(rin)*/
+    height: 200px;/*80 ->200(rin)*/
+    z-index: 1000;/*追加(rin)*/
 }
 #footLeft {
+	
     float:left;
     width:400px;
     text-align:left;
 }
 #footCenter {
+	
     float:left;
     width:400px;
     text-align:center;
 }
 #footRight {
+	
     float:left;
-    width:400px;
+     width:400px;
     text-align:right;
 }
 /*
