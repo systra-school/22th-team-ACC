@@ -145,20 +145,26 @@
       </action>
 
       <!-- シフトマスタメンテナンス 初期表示 -->
+      <!-- 「戻る」ボタンを押すと、「シフトマスタメンテナンス」に 戻るように修正（リン） -->
+       <!--（リ）ン追加： input="/pages/mst/shiftMstMnt.jsp" -->
       <action
         path="/shiftMstMnt"
         type="action.mst.ShiftMstMntInitAction"
         name="shiftMstMntForm"
-        scope="session"
+        scope="session"       
+        input="/pages/mst/shiftMstMnt.jsp" 
         validate="true">
         <forward name="success" path="/pages/mst/shiftMstMnt.jsp"/>
         <forward name="nodata" path="/pages/mst/shiftMstMnt.jsp"/>
       </action>
       <!-- シフトマスタメンテナンス 更新 -->
+      <!-- 「戻る」ボタンを押すと、「シフトマスタメンテナンス」に 戻るように修正（リン） -->
+      <!--（リ）ン追加： input="/pages/mst/shiftMstMnt.jsp" -->
       <action
         path="/shiftMstMntUpdate"
         type="action.mst.ShiftMstMntUpdateAction"
         name="shiftMstMntForm"
+        input="/pages/mst/shiftMstMnt.jsp"
         scope="session"
         validate="true">
         <forward name="success" path="/pages/mst/shiftMstMnt.jsp"/>
@@ -170,6 +176,7 @@
         name="shiftMstMntRegistForm"
         scope="session">
         <forward name="success" path="/menu.do"/>
+        
       </action>
       <!-- シフトマスタメンテナンス 登録初期表示 -->
       <action
@@ -190,12 +197,16 @@
         <forward name="success" path="/shiftMstMnt.do"/>
       </action>
       <!-- シフトマスタメンテナンス 戻る -->
+      <!-- 「戻る」ボタンを押すと、「シフトマスタメンテナンス」に 戻るように修正（リン） -->
+        <!-- 元： <forward name="success" path="/menu.do"/>-->       
+        <!-- 修正後（リン ）：<forward name="success" path="/shiftMstMnt.do"/>-->  
       <action
         path="/shiftMstMntRegistBack"
         type="action.mst.ShiftMstMntRegistBackAction"
         name="shiftMstMntRegistForm"
         scope="session">
-        <forward name="success" path="/menu.do"/>
+             
+        <forward name="success" path="/shiftMstMnt.do"/>
       </action>
 
       <!-- 出勤希望日確認初期表示 -->
