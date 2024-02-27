@@ -138,8 +138,11 @@
         </table>
       </div>
       <div id="gymBody">
-        <html:form action="/shainMstMntUpdate">
-          <div style="overflow:hidden; margin-left:100px">
+        <html:form action="/shainMstMntUpdate">      
+        <!--"overflow:hidden; margin-left:100px"=> "overflow: auto;width:1030px; margin-left:100px "
+        （テーブルの項目行のサイズを固定するための変更）（リン）-->        
+          <!--  <div style="overflow:hidden; margin-left:100px">-->
+          <div style="overflow: auto;width:1030px; margin-left:100px "> 
             <table class="tblHeader" border="1"   cellpadding="0" cellspacing="0">
               <tr>
                 <td width="200px" align="center">
