@@ -136,8 +136,10 @@ if (listSize > intShowLength) {
                     </logic:iterate>
                   </table>
                 </td>
-                <td>
-                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
+                <td valign="top"><!--テーブルがズレていたので修正：valign="top"を追加（リン）  -->
+                <!--テーブルがズレていたので修正（リン）  -->
+                <!-- 元： 「height:」＝＞修正：「height:375」（リン）  -->
+                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height:375 <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                       <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
