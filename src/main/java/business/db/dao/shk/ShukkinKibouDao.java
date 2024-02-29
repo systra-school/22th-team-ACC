@@ -15,15 +15,13 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import constant.DbConstant.M_shain;
-import constant.DbConstant.M_shift;
-import constant.DbConstant.T_Shift;
-
 import business.db.dao.AbstractDao;
-import business.dto.LoginUserDto;
 import business.dto.shk.ShukkinKibouKakuninDto;
 import business.dto.shk.ShukkinKibouNyuuryokuDto;
 import business.logic.utils.CommonUtils;
+import constant.DbConstant.M_shain;
+import constant.DbConstant.M_shift;
+import constant.DbConstant.T_Shift;
 
 /**
  * 説明：出勤希望処理のDao
