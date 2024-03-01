@@ -12,8 +12,9 @@
  * return true:半角カナ false:半角カナ以外
  */
 function checkHankakuKana(str) {
-
-    if (str.match(/^[ｱ-ﾝ]*$/)) {
+	/*2024/03/01　【障害№59他】半角カナの判定修正（高椅）
+	(/^[ｱ-ﾝ]*$/)→(/^[ｦ-ﾟ ]*$/)*/
+    if (str.match(/^[ｦ-ﾟ ]*$/)) {
         return true;
     }
 
