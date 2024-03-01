@@ -274,6 +274,24 @@
         scope="session">
         <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
       </action>
+      
+      <!-- 出勤希望日入力戻る -->
+      
+        <action
+        path="/shukkinKibouNyuuryokuBack"
+        type="action.shk.ShukkinKibouNyuuryokuBackAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/menu.do"/>
+      </action>
+      
+       <action
+        path="/shukinnKibouNyuuryokuRegist"
+        type="action.shk.ShukinnKibouNyuuryokuRegistAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
+      </action>
 
       <!-- 日別シフト初期表示 -->
       <action

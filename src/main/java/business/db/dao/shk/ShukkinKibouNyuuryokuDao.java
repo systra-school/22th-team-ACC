@@ -16,6 +16,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import business.db.dao.AbstractDao;
+import business.dto.LoginUserDto;
 import business.dto.shk.ShukkinKibouKakuninDto;
 import business.dto.shk.ShukkinKibouNyuuryokuDto;
 import business.logic.utils.CommonUtils;
@@ -198,5 +199,121 @@ public class ShukkinKibouNyuuryokuDao extends AbstractDao{
 
 		return shukkinKibouKakuninDtoListList;
 	}
+
+    public void updateShiftTbl(ShukkinKibouNyuuryokuDto KibouNyuuryokuDto, LoginUserDto loginUserDto) throws SQLException{
+
+        try {
+
+            StringBuffer strSql = new StringBuffer();
+            strSql.append("UPDATE ");
+            strSql.append("T_SHIFT ");
+            strSql.append("SET ");
+            strSql.append("SHIFT_ID = ?, ");
+            strSql.append("UPDATE_SHAIN_ID = ?, ");
+            strSql.append("UPDATE_DT = current_timestamp() ");
+            strSql.append("WHERE ");
+            strSql.append("SHAIN_ID = ? ");
+            strSql.append("AND ");
+            strSql.append("YEAR_MONTH_DAY = ? ");
+
+            PreparedStatement ps = connection.prepareStatement(strSql.toString());
+
+            ps.setString(1, KibouNyuuryokuDto.getShiftId());
+            ps.setString(2, loginUserDto.getShainId());
+            ps.setString(3, KibouNyuuryokuDto.getShainId());
+            ps.setString(4, KibouNyuuryokuDto.getYearMonthDay());
+
+            // ログ出力
+            log.info(ps);
+
+            // SQLを実行する
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // 例外発生
+            throw e;
+        }
+    }
+
+    public boolean isData(String shainId, String yearMonthDay) throws SQLException {
+        try {
+            StringBuffer strSql = new StringBuffer();
+            strSql.append("SELECT ");
+            strSql.append("    * ");
+            strSql.append("FROM ");
+            strSql.append("    T_SHIFT ");
+            strSql.append("WHERE ");
+            strSql.append("    SHAIN_ID = ? AND ");
+            strSql.append("    YEAR_MONTH_DAY = ? ");
+
+
+            PreparedStatement ps = connection.prepareStatement(strSql.toString());
+
+            ps.setString(1, shainId);
+            ps.setString(2, yearMonthDay);
+
+            // ログ出力
+            log.info(ps);
+
+            // 実行
+            ResultSet rs = ps.executeQuery();
+
+            // 取得結果セット
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            // 例外発生
+            throw e;
+        }
+    }
+    public void registShiftTbl(ShukkinKibouNyuuryokuDto kibouNyuuryokuDto, LoginUserDto loginUserDto) throws SQLException{
+
+        try {
+
+            StringBuffer strSql = new StringBuffer();
+            strSql.append("INSERT INTO ");
+            strSql.append("T_SHIFT ");
+            strSql.append(" ( ");
+            strSql.append("SHAIN_ID,");
+            strSql.append("YEAR_MONTH_DAY,");
+            strSql.append("SHIFT_ID,");
+            strSql.append("CREATE_SHAIN_ID,");
+            strSql.append("CREATE_DT,");
+            strSql.append("UPDATE_SHAIN_ID,");
+            strSql.append("UPDATE_DT");
+            strSql.append(") ");
+            strSql.append("VALUES ");
+            strSql.append(" ( ");
+            strSql.append("? ");
+            strSql.append(",? ");
+            strSql.append(",? ");
+            strSql.append(",? ");
+            strSql.append(", current_timestamp()");
+            strSql.append(",? ");
+            strSql.append(", current_timestamp()");
+            strSql.append(") ");
+
+            PreparedStatement ps = connection.prepareStatement(strSql.toString());
+
+            ps.setString(1, kibouNyuuryokuDto.getShainId());
+            ps.setString(2, kibouNyuuryokuDto.getYearMonthDay());
+            ps.setString(3, kibouNyuuryokuDto.getShiftId());
+            ps.setString(4, loginUserDto.getShainId());
+            ps.setString(5, loginUserDto.getShainId());
+
+            // ログ出力
+            log.info(ps);
+
+            // SQLを実行する
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            // 例外発生
+            throw e;
+        }
+    }
 
 }

@@ -35,38 +35,21 @@
     <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
     <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
     <script type="text/javascript" language="Javascript1.1">
-    <!--
-
-    /**
-     * 出勤希望反映
-     */
-    function submitShukkinKibou() {
-        // サブミット
-        doSubmit('/kikin/tsukibetsuShiftNyuuryokuShukkinKibou.do');
+    function openWindow(){
+        window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
     }
-
+    
+    function ShukkinKibouKakunin() {
+    	window.open("/kikin//shukkinKibouKakuninSubInit.do");
+	}
+    
     /**
      * 登録
      */
     function submitRegist() {
         // サブミット
-        doSubmit('/kikin/tsukibetsuShiftNyuuryokuRegist.do');
+        doSubmit('/kikin/shukinnKibouNyuuryokuRegist.do');
     }
-
-    /**
-     * 検索
-     */
-    function submitSearch() {
-        doSubmit('/kikin/tsukibetsuShiftNyuuryokuSearch.do');
-    }
-
-    /**
-     * サブウィンドウを開く
-     */
-    function openWindow(){
-        window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
-    }
-    -->
     </script>
     <title>出勤希望入力画面</title>
 
@@ -78,7 +61,7 @@
         <table>
           <tr>
             <td id="headLeft">
-              <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/tsukibetsuShiftNyuuryokuBack.do')" />
+              <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shukkinKibouNyuuryokuBack.do')" />
             </td>
             <td id="headCenter">
               出勤希望入力
@@ -520,8 +503,7 @@
         </html:form>
         <div style="margin-left:50px;">
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
-          <input value="基本シフト反映" type="button" class="lngButton"  />
-          <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
+          
         </div>
       </div>
       <div id="footer">
@@ -533,6 +515,7 @@
 
             </td>
             <td id="footRight">
+            <input value="出勤希望日参照" type="button" class="lngButton"  onclick="ShukkinKibouKakunin()" />
               <input value="登録" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
           </tr>
