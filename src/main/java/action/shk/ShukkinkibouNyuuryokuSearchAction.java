@@ -30,7 +30,7 @@ import form.common.DateBean;
 import form.shk.ShukkinKibouNyuuryokuBean;
 import form.shk.ShukkinKibouNyuuryokuForm;
 
-public class ShukkinkibouNyuuryokuSerchAction extends ShukkinKibouAbstractAction{
+public class ShukkinkibouNyuuryokuSearchAction extends ShukkinKibouAbstractAction{
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest req, HttpServletResponse res) throws Exception {
 

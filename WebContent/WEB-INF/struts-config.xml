@@ -292,7 +292,16 @@
         scope="session">
         <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
       </action>
-
+		
+		<!-- 出勤希望日入力検索 -->
+		<action
+		path = "/shukkinkibouNyuuryokuSearch"
+		type = "action.shk.ShukkinkibouNyuuryokuSearchAction"
+		name = "shukkinKibouNyuuryokuForm"
+		scope = "session">
+			<forward name="success" path = "/pages/shk/shukkinKibouNyuuryoku.jsp"/>
+		</action>
+		
       <!-- 日別シフト初期表示 -->
       <action
         path="/hibetsuShiftInit"
