@@ -161,7 +161,7 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <!--  <div id="gymBody">
         <html:form action="/shiftMstMntUpdate">
           <div style="width: 600px; margin-left:300px;">
             <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
@@ -189,6 +189,66 @@
               <logic:iterate indexId="idx" id="shiftMstMntBeanList" name="shiftMstMntForm"  property="shiftMstMntBeanList">
               <bean:define id="shiftId" name= "shiftMstMntBeanList" property="shiftId" type="java.lang.String"/>
                 <tr>
+                  <td width="100px"  align="center">
+                    <html:text property="shiftName" name="shiftMstMntBeanList" size="10" maxlength="10" indexed="true"/>
+                    <html:hidden property="shiftId" name="shiftMstMntBeanList" indexed="true"/>
+                  </td>
+                  <td width="70px"  align="center">
+                    <html:text property="symbol" name="shiftMstMntBeanList"  size="2" maxlength="2" indexed="true"/>
+                  </td>
+                  <td width="230px"  align="center">
+                    <table width="100%" >
+                      <tr>
+                        <td align="center">
+                          <html:text property="startTime" name="shiftMstMntBeanList"  size="10" maxlength="5" indexed="true"/>
+                        </td>
+                        <td align="center">
+                            &#xFF5E;
+                        </td>
+                        <td align="center">
+                          <html:text property="endTime" name="shiftMstMntBeanList"  size="10" maxlength="5" indexed="true"/>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="100px"  align="center">
+                    <html:text property="breakTime" name="shiftMstMntBeanList"  size="10" maxlength="5" indexed="true"/>
+                  </td>
+
+                  <td width="70px"  align="center">
+                    <html:checkbox property="deleteShiftId" name="shiftMstMntBeanList"  value="<%= shiftId %>"  onchange='<%="checkDeleteFlg(" + idx + ")" %>'></html:checkbox>
+                    <html:hidden property="deleteFlg" name="shiftMstMntBeanList" value="false" indexed="true"/>
+                  </td>
+                </tr>
+              </logic:iterate>
+            </table>
+          </div>
+        </html:form>
+      </div>-->
+      <div id="gymBody">
+        <html:form action="/shiftMstMntUpdate">
+          <div style="width: 600px; margin-left:300px;">
+            <table  border="1" cellpadding="0" cellspacing="0">
+              <tr class="tblHeader" >
+                <td width="100px" align="center">
+                  シフト名
+                </td>
+                <td width="70px" align="center">
+                  シンボル
+                </td>
+                <td width="230px" align="center">
+                  時間
+                </td>
+                <td width="100px" align="center">
+                  休憩
+                </td>
+                <td width="70px" align="center">
+                  削除
+                </td>
+              </tr>
+              <logic:iterate indexId="idx" id="shiftMstMntBeanList" name="shiftMstMntForm"  property="shiftMstMntBeanList">
+              <bean:define id="shiftId" name= "shiftMstMntBeanList" property="shiftId" type="java.lang.String"/>
+                <tr class="tblBody">
                   <td width="100px"  align="center">
                     <html:text property="shiftName" name="shiftMstMntBeanList" size="10" maxlength="10" indexed="true"/>
                     <html:hidden property="shiftId" name="shiftMstMntBeanList" indexed="true"/>
