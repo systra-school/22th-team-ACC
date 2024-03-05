@@ -61,7 +61,12 @@
 
         // 一覧のサイズ
         var listSize = <%= beanListSize %>;
-
+        
+      	// 3/5　この後にシフト名とシフトシンボルエラーメッセージ追加(高橋)
+      	// シフト名エラーメッセージ
+        var shiftNameErrMsg = '';
+      	// シンボルエラーメッセージ
+        var symbolErrMsg = '';
         // 開始時間エラーメッセージ
         var startTimeErrMsg = '';
         // 終了時間エラーメッセージ
@@ -77,7 +82,12 @@
         with(document.forms[0].elements) {
 
             for (var i = 0; i < listSize; i++) {
-
+            	
+            	// 3/5　この後にシフト名とシンボル取得を追加(高橋)
+                // シフト名を取得する。
+            	var shiftName = namedItem('shiftMstMntBeanList['+ i +'].shiftName').value;
+                // シンボルを取得する。
+            	var symbol = namedItem('shiftMstMntBeanList['+ i +'].symbol').value;
                 // 開始時間を取得する。
                 var startTime = namedItem('shiftMstMntBeanList['+ i +'].startTime').value;
                 // 終了時間を取得する。
@@ -85,10 +95,31 @@
                 // 休憩時間を取得する。
                 var breakTime = namedItem('shiftMstMntBeanList['+ i +'].breakTime').value;
 
-                // 背景色をクリアする
+                // 背景色をクリアする	　3/5 シフト名とシンボルも追加(高橋)
+                namedItem('shiftMstMntBeanList['+ i +'].shiftName').style.backgroundColor = 'white';
+                namedItem('shiftMstMntBeanList['+ i +'].symbol').style.backgroundColor = 'white';
                 namedItem('shiftMstMntBeanList['+ i +'].startTime').style.backgroundColor = 'white';
                 namedItem('shiftMstMntBeanList['+ i +'].endTime').style.backgroundColor = 'white';
                 namedItem('shiftMstMntBeanList['+ i +'].breakTime').style.backgroundColor = 'white';
+
+              //3/4　この後にシフト名とシンボルの空白チェックを追加(高橋)
+            	// シフト名チェック
+            	if (!shiftNameErrMsg) {
+                    if (!checkRequired(shiftName)) {
+                        var strArr = ['シフト名'];
+                        shiftNameErrMsg = getMessage('E-MSG-000006', strArr);
+                        namedItem('shiftMstMntBeanList['+ i +'].shiftName').style.backgroundColor = 'red';
+                    }
+                }
+              
+            	// シンボルチェック
+            	if (!symbolErrMsg) {
+                    if (!checkRequired(symbol)) {
+                        var strArr = ['シンボル'];
+                        symbolErrMsg = getMessage('E-MSG-000006', strArr);
+                        namedItem('shiftMstMntBeanList['+ i +'].symbol').style.backgroundColor = 'red';
+                    }
+                }
 
                 // 時間チェック
                 if (!startTimeErrMsg) {
@@ -125,8 +156,8 @@
             }
         }
 
-        // エラーメッセージ
-        errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
+        // エラーメッセージ	3/5 シフト名とシンボルのエラーメッセージ追加(高橋)
+        errorMsg = symbolErrMsg + symbolErrMsg + startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
 
         if (errorMsg) {
             alert(errorMsg);

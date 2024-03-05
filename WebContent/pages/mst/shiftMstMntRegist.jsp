@@ -32,7 +32,12 @@
      * 登録処理を行う
      */
     function shiftMstMntRegist() {
-
+    	
+    	// 3/5　この後にシフト名とシフトシンボルエラーメッセージ追加(高橋)
+      	// シフト名エラーメッセージ
+        var shiftNameErrMsg = '';
+      	// シンボルエラーメッセージ
+        var symbolErrMsg = '';
         // 開始時間エラーメッセージ
         var startTimeErrMsg = '';
         // 終了時間エラーメッセージ
@@ -43,9 +48,13 @@
         var errorMsg = '';
         // From - To エラーメッセージ
         var fromToErrMsg = '';
-
-        // 時間チェック
+        
+        // シンボル名、シフト、時間チェック		3/5 シンボル名、シフト追加（高橋)
         with (document.forms[0]) {
+          // シフト名を取得する。
+          var varShiftName = shiftName.value;
+          // シンボルを取得する。
+          var varSymbol = symbol.value;
           // 開始時間を取得する。
           var varStartTime = startTime.value;
           // 終了時間を取得する。
@@ -54,10 +63,26 @@
           var barBreakTime = breakTime.value;
 
           // 背景色をクリアする
+          shiftName.style.backgroundColor = 'pink';
+          symbol.style.backgroundColor = 'white';
           startTime.style.backgroundColor = 'white';
           endTime.style.backgroundColor = 'white';
           breakTime.style.backgroundColor = 'white';
-
+          
+       	 // シフト名チェック
+         if (!checkRequired(varShiftName)) {
+              var strArr = ['シフト名'];
+              shiftNameErrMsg = getMessage('E-MSG-000001', strArr);
+              shiftName.style.backgroundColor = 'red';
+          }
+        
+      	 // シンボルチェック
+         if (!checkRequired(varSymbol)) {
+              var strArr = ['シンボル'];
+              symbolErrMsg = getMessage('E-MSG-000001', strArr);
+              symbol.style.backgroundColor = 'red';
+          }
+			
           if (!checkTime(varStartTime)) {
               var strArr = ['開始時間'];
               startTimeErrMsg = getMessage('E-MSG-000004', strArr);
@@ -86,8 +111,8 @@
           }
         }
 
-        // エラーメッセージ
-        errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
+        // エラーメッセージ	3/5 シフト名とシンボルのエラーメッセージ追加(高橋)
+        errorMsg = shiftNameErrMsg + symbolErrMsg + startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
 
         if (errorMsg) {
             alert(errorMsg);
