@@ -63,7 +63,7 @@
           var barBreakTime = breakTime.value;
 
           // ”wŒiF‚ğƒNƒŠƒA‚·‚é
-          shiftName.style.backgroundColor = 'pink';
+          shiftName.style.backgroundColor = 'white';
           symbol.style.backgroundColor = 'white';
           startTime.style.backgroundColor = 'white';
           endTime.style.backgroundColor = 'white';
