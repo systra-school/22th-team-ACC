@@ -57,12 +57,15 @@
     /**
      * 更新処理を行う
      */
+     /* 3/4 社員名（必須項目）設定の追加（高橋） */
     function shainMstMntUpdate() {
         // 一覧のサイズ
         var listSize = <%= shainMstMntBeanListSize %>;
 
         // パスワードエラーメッセージ
         var passwordErrorMsg = '';
+     	// 社員名エラーメッセージ
+        var shainNameErrorMsg = '';
         // 社員名カナエラーメッセージ
         var shainmeiKanaErrorMsg = '';
         var errorMsg = '';
@@ -71,11 +74,14 @@
             for (var i = 0; i < listSize; i++) {
                 // パスワードを取得する。
                 var password = namedItem('shainMstMntBeanList['+ i +'].password').value;
+             	// 社員名を取得する。
+                var shainName = namedItem('shainMstMntBeanList['+ i +'].shainName').value;
                 // 社員名カナを取得する。
                 var shainNameKana = namedItem('shainMstMntBeanList['+ i +'].shainNameKana').value;
 
                 // 背景色をクリアする
                 namedItem('shainMstMntBeanList['+ i +'].password').style.backgroundColor = 'white';
+                namedItem('shainMstMntBeanList['+ i +'].shainName').style.backgroundColor = 'white';
                 namedItem('shainMstMntBeanList['+ i +'].shainNameKana').style.backgroundColor = 'white';
 
                 // パスワードチェック
@@ -84,6 +90,14 @@
                         var strArr = ['パスワード'];
                         passwordErrorMsg = getMessage('E-MSG-000001', strArr);
                         namedItem('shainMstMntBeanList['+ i +'].password').style.backgroundColor = 'red';
+                    }
+                }
+             	// 社員名チェック
+                if (!shainNameErrorMsg) {
+                    if (!checkRequired(shainName)) {
+                        var strArr = ['社員名'];
+                        shainNameErrorMsg = getMessage('E-MSG-000001', strArr);
+                        namedItem('shainMstMntBeanList['+ i +'].shainName').style.backgroundColor = 'red';
                     }
                 }
                 // 社員名カナチェック
@@ -95,14 +109,14 @@
                     }
                 }
 
-                if (passwordErrorMsg && shainmeiKanaErrorMsg) {
-                    // パスワード 、社員名カナが共にエラーの場合
+                if (passwordErrorMsg && shainNameErrorMsg && shainmeiKanaErrorMsg) {
+                    // パスワード、社員名、社員名カナが共にエラーの場合
                     break;
                 }
             }
         }
         // エラーメッセージ
-        errorMsg = passwordErrorMsg + shainmeiKanaErrorMsg;
+        errorMsg = passwordErrorMsg + shainNameErrorMsg + shainmeiKanaErrorMsg;
 
         if (errorMsg) {
             alert(errorMsg);

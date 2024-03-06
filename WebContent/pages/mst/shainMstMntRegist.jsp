@@ -37,11 +37,14 @@
     /**
      * 新規登録画面へ
      */
+     /* 3/4 社員名（必須項目）設定の追加（高橋） */
     function shainMstMntRegist() {
 
         with (document.forms[0]) {
             // パスワード
             var passwordVar = password.value;
+         	// 社員名
+            var shainNameVar = shainName.value;
             // 社員名カナ
             var shainNameKanaVar = shainNameKana.value;
             // エラーメッセージ
@@ -49,6 +52,7 @@
 
             // 背景色をクリアする
             password.style.backgroundColor = 'white';
+            shainName.style.backgroundColor = 'white';
             shainNameKana.style.backgroundColor = 'white';
 
             // パスワード
@@ -57,6 +61,13 @@
                 var strArr = ['パスワード'];
                 errorMsg += getMessage('E-MSG-000001', strArr);
                 password.style.backgroundColor = 'red';
+            }
+        	// 社員名
+            if (!checkRequired(shainNameVar)) {
+                // エラー有り
+                var strArr = ['社員名'];
+                errorMsg += getMessage('E-MSG-000001', strArr);
+                shainName.style.backgroundColor = 'red';
             }
             // 社員名カナ
             if (!checkHankakuKana(shainNameKanaVar)) {
