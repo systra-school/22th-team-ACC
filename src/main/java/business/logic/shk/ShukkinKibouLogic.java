@@ -34,19 +34,16 @@ public class ShukkinKibouLogic {
 	 * @return 出勤希望Dtoリストのリスト
 	 * @author naraki
 	 */
-	public List<List<ShukkinKibouKakuninDto>> getShukkinKibouKakuninDtoList(String yearMonth) throws SQLException{
+	   public List<List<ShukkinKibouKakuninDto>> getShukkinKibouKakuninDtoList(String yearMonth) throws SQLException{
 
-		/* 戻り値 */
-		Map<String, List<ShukkinKibouNyuuryokuDto>> ShukkinKibouNyuuryokuDtoMap = new LinkedHashMap<String, List<ShukkinKibouNyuuryokuDto>>();
+	        // Dao
+	        ShukkinKibouDao dao = new ShukkinKibouDao();
 
-		// Dao
-		ShukkinKibouDao dao = new ShukkinKibouDao();
+	        // シフト情報を取得する。
+	        List<List<ShukkinKibouKakuninDto>> kakuninDtoListList = dao.getShiftTblListList(yearMonth);
 
-		// シフト情報を取得する。
-		List<List<ShukkinKibouKakuninDto>> kakuninDtoListList = dao.getShiftTblListList(yearMonth);
-
-		return kakuninDtoListList;
-	}
+	        return kakuninDtoListList;
+	    }
 	public Map<String,List<ShukkinKibouNyuuryokuDto>> getShukkinKibouNyuuryokuDtoMap(String yearMonth, boolean shiftFlg) throws SQLException{
 		/* 戻り値 */
 		Map<String, List<ShukkinKibouNyuuryokuDto>> ShukkinKibouNyuuryokuDtoMap = new LinkedHashMap<String, List<ShukkinKibouNyuuryokuDto>>();
@@ -75,29 +72,28 @@ public class ShukkinKibouLogic {
         connection.setAutoCommit(false);
 
         try {
-            for (List<ShukkinKibouNyuuryokuDto> KibouNyuuryokuDtoList : KibouNyuuryokuDtoListList) {
+            for (List<ShukkinKibouNyuuryokuDto> KibouShiftDtoList : KibouNyuuryokuDtoListList) {
                 // 人数分のループ
-                for (ShukkinKibouNyuuryokuDto KibouNyuuryokuDto : KibouNyuuryokuDtoList) {
+                for (ShukkinKibouNyuuryokuDto kibouNyuuryokuDto : KibouShiftDtoList) {
                     // 日数分ループ
+        	        // 社員ID
+        	        String shainId = kibouNyuuryokuDto.getShainId();
+        	        // 対象年月
+        	        String yearMonthDay = kibouNyuuryokuDto.getYearMonthDay();
 
-                    // 社員ID
-                    String shainId = KibouNyuuryokuDto.getShainId();
-                    // 対象年月
-                    String yearMonthDay = KibouNyuuryokuDto.getYearMonthDay();
+        	        // レコードの存在を確認する
+        	        boolean isData = dao.isData(shainId, yearMonthDay);
 
-                    // レコードの存在を確認する
-                    boolean isData = dao.isData(shainId, yearMonthDay);
-
-                    if (isData) {
-                        // 更新
-                        dao.updateShiftTbl(KibouNyuuryokuDto, loginUserDto);
-                    } else {
-                        // 登録
-                        dao.registShiftTbl(KibouNyuuryokuDto, loginUserDto);
-                    }
-
-                }
-            }
+        	        if (isData) {
+        	            // 更新
+        	            dao.updateKibouShiftTbl(kibouNyuuryokuDto, loginUserDto);
+        	        } else {
+        	            // 登録
+        	            dao.registKibouShiftTbl(kibouNyuuryokuDto, loginUserDto);
+        	        }
+        	    }
+        	}
+        	
 
         } catch (SQLException e) {
             // ロールバック処理

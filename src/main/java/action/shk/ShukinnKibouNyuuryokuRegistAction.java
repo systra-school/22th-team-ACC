@@ -46,8 +46,7 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
 
         log.info(new Throwable().getStackTrace()[0].getMethodName());
 
-        // フォワードキー
-        String forward = CommonConstant.SUCCESS;
+
 
         // セッション
         HttpSession session = req.getSession();
@@ -57,6 +56,7 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
 
         // フォーム
         ShukkinKibouNyuuryokuForm KibouNyuuryoku = (ShukkinKibouNyuuryokuForm) form;
+        log.info(KibouNyuuryoku);
 
         // 画面のリスト情報
         List<ShukkinKibouNyuuryokuBean> KibouNyuuryokuBeanList = KibouNyuuryoku.getShukkinKibouNyuuryokuBeanList();
@@ -103,11 +103,9 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
         KibouNyuuryoku.setShukkinKibouNyuuryokuBeanList(KibouNyuuryokuBeanList);
         KibouNyuuryoku.setDateBeanList(dateBeanList);
         KibouNyuuryoku.setYearMonth(yearMonth);
-		/*
-		 * // ページング用 KibouNyuuryoku.setOffset(0); KibouNyuuryoku.setCntPage(1);
-		 * KibouNyuuryoku.setMaxPage(CommonUtils.getMaxPage(ShukkinKibouNyuuryokuDtoMap.size()
-		 * , SHOW_LENGTH));
-		 */
+        
+        // フォワードキー
+        String forward = CommonConstant.SUCCESS;
 
         return mapping.findForward(forward);
     }
@@ -134,10 +132,10 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
         for (List<ShukkinKibouNyuuryokuDto> ShukkinKibouNyuuryokuDtoList : collection) {
 
             // 実行するオブジェクトの生成
-            ShukkinKibouNyuuryokuBean tsukibetsuShiftBean = new ShukkinKibouNyuuryokuBean();
+            ShukkinKibouNyuuryokuBean KibounyuuryokuBean = new ShukkinKibouNyuuryokuBean();
 
             // メソッドの取得
-            Method[] methods = tsukibetsuShiftBean.getClass().getMethods();
+            Method[] methods = KibounyuuryokuBean.getClass().getMethods();
 
             // メソッドのソートを行う
             Comparator<Method> asc = new MethodComparator();
@@ -154,20 +152,19 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
                 if (methods[i].getName().startsWith("setShiftId") && listSize > index) {
                     ShukkinKibouNyuuryokuDto ShukkinKibouNyuuryokuDto = ShukkinKibouNyuuryokuDtoList.get(index);
                     // メソッド実行
-                    methods[i].invoke(tsukibetsuShiftBean, ShukkinKibouNyuuryokuDto.getShiftId());
+                    methods[i].invoke(KibounyuuryokuBean, ShukkinKibouNyuuryokuDto.getKibouShiftId());
 
                     shainId = ShukkinKibouNyuuryokuDto.getShainId();
-                    shainName = ShukkinKibouNyuuryokuDto.getShainName();
 
                     index ++;
                 }
             }
 
-            tsukibetsuShiftBean.setShainId(shainId);
-            tsukibetsuShiftBean.setShainName(shainName);
-            tsukibetsuShiftBean.setRegistFlg(false);
+            KibounyuuryokuBean.setShainId(shainId);
+            KibounyuuryokuBean.setShainName(shainName);
+            KibounyuuryokuBean.setRegistFlg(false);
 
-            KibouNyuuryokuBeanList.add(tsukibetsuShiftBean);
+            KibouNyuuryokuBeanList.add(KibounyuuryokuBean);
 
         }
 
@@ -221,14 +218,14 @@ public class ShukinnKibouNyuuryokuRegistAction extends ShukkinKibouAbstractActio
                     yearMonthDay = dateBeanList.get(index).getYearMonthDay();
 
                     ShukkinKibouNyuuryokuDto ShukkinKibouNyuuryokuDto = new ShukkinKibouNyuuryokuDto();
-                    String shiftId = (String) methods[i].invoke(ShukkinKibouNyuuryokuBean);
+                    String KibouShiftId = (String) methods[i].invoke(ShukkinKibouNyuuryokuBean);
 
-                    if (CommonConstant.BLANK_ID.equals(shiftId)) {
+                    if (CommonConstant.BLANK_ID.equals(KibouShiftId)) {
                         // 空白が選択されている場合
-                        shiftId = null;
+                    	KibouShiftId = null;
                     }
 
-                    ShukkinKibouNyuuryokuDto.setShiftId(shiftId);
+                    ShukkinKibouNyuuryokuDto.setKibouShiftId(KibouShiftId);
                     ShukkinKibouNyuuryokuDto.setShainId(ShukkinKibouNyuuryokuBean.getShainId());
                     ShukkinKibouNyuuryokuDto.setYearMonthDay(yearMonthDay);
                     ShukkinKibouNyuuryokuDtoList.add(ShukkinKibouNyuuryokuDto);

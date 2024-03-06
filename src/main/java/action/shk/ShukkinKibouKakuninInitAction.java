@@ -9,8 +9,6 @@ package action.shk;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +22,6 @@ import org.apache.struts.action.ActionMapping;
 
 import business.dto.LoginUserDto;
 import business.dto.shk.ShukkinKibouKakuninDto;
-import business.logic.comparator.MethodComparator;
 import business.logic.shk.ShukkinKibouLogic;
 import business.logic.utils.CheckUtils;
 import business.logic.utils.ComboListUtilLogic;
@@ -136,9 +133,10 @@ public class ShukkinKibouKakuninInitAction extends ShukkinKibouAbstractAction{
             Method[] methods = shukkinKibouKakuninBean.getClass().getMethods();
 
             // ソートを行う
-            Comparator<Method> asc = new MethodComparator();
-            Arrays.sort(methods, asc); // 配列をソート
-
+			/*
+			 * Comparator<Method> asc = new MethodComparator(); Arrays.sort(methods, asc);
+			 * // 配列をソート
+			 */
             // 社員名
             String shainId = "";
             String shainName = "";

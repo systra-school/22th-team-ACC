@@ -79,6 +79,9 @@ public class ShukkinKibouDao extends AbstractDao{
                 ShukkinKibouNyuuryokuDto dto = new ShukkinKibouNyuuryokuDto();
                 dto.setShainId(rs.getString(T_Shift.SHAIN_ID.getName()));
                 dto.setYearMonthDay(rs.getString(T_Shift.YEAR_MONTH_DAY.getName()));
+                if(dto.getKibouShiftId() == null) {
+                	dto.setKibouShiftId("");
+                }
                 dto.setKibouShiftId(rs.getString(T_Shift.KIBOU_SHIFT_ID.getName()));
 
                 // 取得した値を戻り値のリストにセットする。
@@ -176,6 +179,9 @@ public class ShukkinKibouDao extends AbstractDao{
                 dto.setShainName(rs.getString(M_shain.SHAIN_NAME.getName()));
                 dto.setYearMonthDay(rs.getString(T_Shift.YEAR_MONTH_DAY.getName()));
                 dto.setKibouShiftId(rs.getString(T_Shift.KIBOU_SHIFT_ID.getName()));
+				/*
+				 * if(dto.getKibouShiftId() == null) { dto.setKibouShiftId("-"); }
+				 */
                 dto.setKibouShiftSymbol(CommonUtils.changeNullToHyphen(rs.getString(M_shift.SYMBOL.getName())));
                 // 取得した値を戻り値のリストにセットする。
                 shukkinKibouKakuninDtoList.add(dto);

@@ -14,19 +14,12 @@ package business.dto.shk;
 public class ShukkinKibouNyuuryokuDto {
     /** 社員ID */
     private String shainId;
-	/* 社員名 */
-    private String shainName;
     /** 年月日 */
     private String yearMonthDay;
     /** 希望シフト */
     private String kibouShiftId;
     /** 登録フラグ */
     private boolean registFlg;
-    /** シフトID */
-    private String shiftId;
-    /** シンボル */
-    private String symbol;
-
 
     /**
      * @return shainId
@@ -76,24 +69,6 @@ public class ShukkinKibouNyuuryokuDto {
     public void setRegistFlg(boolean registFlg) {
         this.registFlg = registFlg;
     }
-	public String getShiftId() {
-		return shiftId;
-	}
-	public void setShiftId(String shiftId) {
-		this.shiftId = shiftId;
-	}
-	public String getSymbol() {
-		return symbol;
-	}
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
-	}
-	public String getShainName() {
-		return shainName;
-	}
-	public void setShainName(String shainName) {
-		this.shainName = shainName;
-	}
 
 
 }

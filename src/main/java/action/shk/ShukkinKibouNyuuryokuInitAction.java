@@ -141,24 +141,21 @@ public class ShukkinKibouNyuuryokuInitAction extends ShukkinKibouAbstractAction{
             int listSize = ShukkinKibouNyuuryokuDtoList.size();
 
             String shainId = "";
-            String shainName = "";
 
             for (int i = 0; i < methods.length; i++) {
                 // "setShiftIdXX" のメソッドを動的に実行する
                 if (methods[i].getName().startsWith("setShiftId") && listSize > index) {
                     ShukkinKibouNyuuryokuDto ShukkinKibouNyuuryokuDto = ShukkinKibouNyuuryokuDtoList.get(index);
                     // メソッド実行
-                    methods[i].invoke(kibouNyuuryokuBean, ShukkinKibouNyuuryokuDto.getShiftId());
+                    methods[i].invoke(kibouNyuuryokuBean, ShukkinKibouNyuuryokuDto.getKibouShiftId());
 
                     shainId = ShukkinKibouNyuuryokuDto.getShainId();
-                    shainName = ShukkinKibouNyuuryokuDto.getShainName();
 
                     index ++;
                 }
             }
 
             kibouNyuuryokuBean.setShainId(shainId);
-            kibouNyuuryokuBean.setShainName(shainName);
             kibouNyuuryokuBean.setRegistFlg(false);
 
             KibouNyuuryokuBeanList.add(kibouNyuuryokuBean);
