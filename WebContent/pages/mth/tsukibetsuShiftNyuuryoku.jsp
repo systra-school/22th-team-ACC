@@ -51,7 +51,7 @@ if (listSize > intShowLength) {
     <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
     <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
     <script type="text/javascript" language="Javascript1.1">
-    <!--
+    
 
     /**
      * 出勤希望反映
@@ -60,7 +60,12 @@ if (listSize > intShowLength) {
         // サブミット
         doSubmit('/kikin/tsukibetsuShiftNyuuryokuShukkinKibou.do');
     }
-
+    
+    function submitShukkinKihon() {
+        // サブミット
+        doSubmit('/kikin/tsukibetsuShiftNyuuryokuShukkinKihon.do');
+    }
+    
     /**
      * 登録
      */
@@ -82,7 +87,7 @@ if (listSize > intShowLength) {
     function openWindow(){
         window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
     }
-    -->
+    
     </script>
     <title>月別シフト入力画面</title>
 
@@ -539,7 +544,7 @@ if (listSize > intShowLength) {
         </html:form>
         <div style="margin-left:50px;">
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
-          <input value="基本シフト反映" type="button" class="lngButton"  />
+          <input value="基本シフト反映" type="button" class="lngButton" onclick = "submitShukkinKihon()" />
           <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
         </div>
       </div>
