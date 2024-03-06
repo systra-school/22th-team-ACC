@@ -399,8 +399,8 @@
       <action path="/kihonShiftRegist" type="action.bse.KihonShiftMstMntRegistAction"
         name="kihonShiftMstMntForm" input="/pages/bse/kihonShiftMstMnt.jsp" scope="session"
         validate="false">
-        <forward name="success" path="/pages/bse/kihonShiftMstMntKakunin.jsp" />	<!-- 2/23 success：遷移先を基本シフト確認画面へ修正 -->
-        <forward name="failure" path="/pages/bse/kihonShiftMstMnt.jsp" />			<!-- failure：遷移先は修正せずこのまま(takahashi) -->
+        <forward name="success" path="/pages/bse/kihonShiftMstMnt.jsp" />
+        <forward name="failure" path="/pages/bse/kihonShiftMstMnt.jsp" />
       </action>
       <!-- 基本シフト登録 もどる -->
       <action path="/kihonShiftBack" type="action.bse.KihonShiftMstMntBackAction"
