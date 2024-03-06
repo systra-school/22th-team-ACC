@@ -139,10 +139,9 @@
       </div>
       <div id="gymBody">
         <html:form action="/shainMstMntUpdate">      
-        <!--"overflow:hidden; margin-left:100px"=> "overflow: auto;width:1030px; margin-left:100px "
-        （テーブルの項目行のサイズを固定するための変更）（リン）-->        
-          <!--  <div style="overflow:hidden; margin-left:100px">-->
-          <div style="overflow: auto;width:1030px; margin-left:100px "> 
+        <!--テーブルがズレているのを修正、１つテーブルにまとめ（リン）
+        元コード↓-->
+           <!--<div style="overflow: auto;width:1030px; margin-left:100px "> 
             <table class="tblHeader" border="1"   cellpadding="0" cellspacing="0">
               <tr>
                 <td width="200px" align="center">
@@ -200,7 +199,60 @@
                 </tr>
               </logic:iterate>
             </table>
-          </div>
+          </div>-->
+          <!-- 新コード↓ -->
+          <div style="overflow: auto;width:1030px; margin-left:100px ">
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr class="tblHeader" >
+            <td width="200px" align="center">
+                社員ＩＤ
+            </td>
+            <td width="200px" align="center">
+                パスワード
+            </td>
+            <td width="200px" align="center">
+                社員名
+            </td>
+            <td width="200px" align="center">
+                社員名カナ
+            </td>
+            <td width="100px" align="center">
+                権限
+            </td>
+            <td width="100px" align="center">
+                削除
+            </td>
+        </tr>
+        <logic:iterate indexId="idx" id="shainMstMntBeanList" name="shainMstMntForm" property="shainMstMntBeanList">
+            <bean:define id="shainId" name= "shainMstMntBeanList" property="shainId" type="java.lang.String"/>
+            <bean:define id="selectKengenId" name= "shainMstMntBeanList" property="kengenId" type="java.lang.String"/>
+            <tr class="tblBody">
+                <td width="200px" align="center">
+                    <bean:write property="shainId" name="shainMstMntBeanList"/>
+                    <html:hidden property="shainId" name="shainMstMntBeanList" indexed="true"/>
+                </td>
+                <td width="200px" align="center">
+                    <html:password property="password" name="shainMstMntBeanList" size="10" maxlength="6" indexed="true" />
+                </td>
+                <td width="200px" align="center">
+                    <html:text property="shainName" name="shainMstMntBeanList" size="20" maxlength="10" indexed="true" />
+                </td>
+                <td width="200px" align="center">
+                    <html:text property="shainNameKana" name="shainMstMntBeanList" size="20" maxlength="10" indexed="true" />
+                </td>
+                <td width="100px" align="center">
+                    <html:select property="kengenId" name="shainMstMntBeanList" value="<%= selectKengenId %>" indexed="true">
+                        <html:optionsCollection name="shainMstMntForm" property="kengenCmbMap" value="key" label="value"/>
+                    </html:select>
+                </td>
+                <td width="100px" align="center">
+                    <html:checkbox property="deleteShainId" name="shainMstMntBeanList" value="<%= shainId %>" onchange='<%="checkDeleteFlg(" + idx + ")" %>' ></html:checkbox>
+                    <html:hidden property="deleteFlg" name="shainMstMntBeanList" value="false" indexed="true"/>
+                </td>
+            </tr>
+        </logic:iterate>
+    </table>
+</div>
         </html:form>
       </div>
       <div id="footer">
