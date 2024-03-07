@@ -20,6 +20,6 @@ public abstract class TsukibetsuShiftNyuuryokuAbstractAction extends Action{
     protected Log log = LogFactory.getLog(this.getClass());
 
     // 表示データ数
-    protected final int SHOW_LENGTH = 16;
+    protected final int SHOW_LENGTH =12; //16->12変更（リン）
 
 }

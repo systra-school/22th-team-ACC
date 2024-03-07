@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -26,7 +25,7 @@ import form.mth.TsukibetsuShiftKakuninForm;
  * @author naraki
  *
  */
-public class TsukibetsuShiftKakuninPrintAction extends Action {
+public class TsukibetsuShiftKakuninPrintAction extends TsukibetsuShiftNyuuryokuAbstractAction {
 
     // ログ出力クラス
     private Log log = LogFactory.getLog(this.getClass());

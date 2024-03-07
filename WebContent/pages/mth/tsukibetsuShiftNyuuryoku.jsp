@@ -21,7 +21,7 @@
 
 <bean:size id="dateBeanListSize" name="tsukibetsuShiftNyuuryokuForm" property="dateBeanList"/>
 <bean:size id="listSize" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList"/>
-<bean:define id="showLength" value="16" type="java.lang.String"/>
+<bean:define id="showLength" value="12" type="java.lang.String"/> <!-- value 16->12に変更（リン）テーブルが社員１２名まで表示 -->
 <bean:define id="offset" name="tsukibetsuShiftNyuuryokuForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="cntPage" name="tsukibetsuShiftNyuuryokuForm" property="cntPage" type="java.lang.Integer"/>
@@ -141,7 +141,7 @@ if (listSize > intShowLength) {
                       社員名
                       </td>
                     </tr>
-                    <logic:iterate offset="offset" length="<%=showLength %>"  id="tsukibetsuShiftNyuuryokuBeanList" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList">
+                    <logic:iterate offset="offset" length="<%=showLength%>"  id="tsukibetsuShiftNyuuryokuBeanList" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList">
                       <tr height="<%=heightSize %>px">
                         <td width="150px" align="center">
                           <bean:write property="shainName" name="tsukibetsuShiftNyuuryokuBeanList"/><br>
@@ -150,8 +150,8 @@ if (listSize > intShowLength) {
                     </logic:iterate>
                   </table>
                 </td>
-                <td>
-                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
+                <td valign="top">   <!-- valign="top"追加（リン） -->
+                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) +80 %>px; text-align:center;"> <!--10->80に変更 （リン） -->
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                       <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
@@ -276,8 +276,8 @@ if (listSize > intShowLength) {
                       </tr>
                       <logic:iterate offset="offset" length="<%=showLength %>" id="tsukibetsuShiftNyuuryokuBeanList" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList">
                         <html:hidden name="tsukibetsuShiftNyuuryokuBeanList" property="registFlg" value="true" indexed="true"/>
-                        <tr height="<%=heightSize %>px">
-                          <td width="40px" align="center" valign="middle">
+                        <tr height="25.6px">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId01" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -285,7 +285,8 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <!-- width="40px"->30pxに変更（リン） -->
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId02" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -293,7 +294,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId03" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -301,7 +302,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId04" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -309,7 +310,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId05" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -317,7 +318,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId06" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -325,7 +326,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId07" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -333,7 +334,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId08" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -341,7 +342,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId09" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -349,7 +350,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId10" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -357,7 +358,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId11" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -365,7 +366,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId12" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -373,7 +374,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId13" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -381,7 +382,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId14" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -389,7 +390,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId15" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -397,7 +398,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId16" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -405,7 +406,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId17" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -413,7 +414,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId18" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -421,7 +422,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId19" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -429,7 +430,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId20" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -437,7 +438,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId21" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -445,7 +446,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId22" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -453,7 +454,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId23" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -461,7 +462,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId24" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -469,7 +470,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId25" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -477,7 +478,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId26" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -485,7 +486,7 @@ if (listSize > intShowLength) {
                                                     label="value"/>
                             </html:select>
                           </td>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId27" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -494,7 +495,7 @@ if (listSize > intShowLength) {
                             </html:select>
                           </td>
                           <% if (dateBeanListSize >= 28) { %>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId28" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -504,7 +505,7 @@ if (listSize > intShowLength) {
                           </td>
                           <% } %>
                           <% if (dateBeanListSize >= 29) { %>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId29" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -514,7 +515,7 @@ if (listSize > intShowLength) {
                           </td>
                           <% } %>
                           <% if (dateBeanListSize >= 30) { %>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId30" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
@@ -524,7 +525,7 @@ if (listSize > intShowLength) {
                           </td>
                           <% } %>
                           <% if (dateBeanListSize >= 31) { %>
-                          <td width="40px" align="center" valign="middle">
+                          <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId31" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
                                                     property="shiftCmbMap"
