@@ -285,6 +285,36 @@
         <forward name="success" path="/menu.do"/>
       </action>
       
+           
+      <!--åºå¤å¸ææ¥å¥ååæç»é¢-->
+       <action
+        path="/shukkinKibouNyuuryokuInit"
+        type="action.shk.ShukkinKibouNyuuryokuInitAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
+      </action>
+      
+      <!-- åºå¤å¸ææ¥å¥åæ»ã -->
+      
+        <action
+        path="/shukkinKibouNyuuryokuBack"
+        type="action.shk.ShukkinKibouNyuuryokuBackAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/menu.do"/>
+      </action>
+      
+
+      <!-- åºå¤å¸ææ¥ç»é² -->
+       <action
+        path="/shukinnKibouNyuuryokuRegist"
+        type="action.shk.ShukinnKibouNyuuryokuRegistAction"
+        name="shukkinKibouNyuuryokuForm"
+        scope="session">
+        <forward name="success" path="/pages/shk/shukkinKibouNyuuryoku.jsp"/>
+      </action>
+      
        <action
         path="/shukinnKibouNyuuryokuRegist"
         type="action.shk.ShukinnKibouNyuuryokuRegistAction"

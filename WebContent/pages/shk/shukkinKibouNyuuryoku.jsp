@@ -1,4 +1,4 @@
-<!-- tsukibetsuShiftNyuuryoku.jsp -->
+<!-- shukkinKibouNyuuryoku.jsp -->
 <%@page import="constant.CommonConstant.DayOfWeek"%>
 <%@page import="business.logic.utils.CheckUtils"%>
 <%@page import="form.common.DateBean"%>
@@ -6,7 +6,7 @@
 <%@page import="form.shk.ShukkinKibouNyuuryokuForm"%>
 <%
 /**
- * ファイル名：tsukibetsuShiftNyuuryoku.jsp
+ * ファイル名：shukkinKibouNyuuryoku.jsp
  *
  * 変更履歴
  * 1.0  2010/09/13 Kazuya.Naraki
@@ -108,7 +108,7 @@
                       社員名
                       </td>
                     </tr>
-                    <logic:iterate offset="offset" length="<%=showLength %>"  id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
+                    <logic:iterate offset="offset" length="1"  id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
                       <tr height="px">
                         <td width="150px" align="center">
                           <bean:write property="shainName" name="shukkinKibouNyuuryokuBeanList"/><br>
@@ -242,7 +242,7 @@
                             </td>
                         </logic:iterate>
                       </tr>
-                      <logic:iterate offset="offset" length="<%=showLength %>" id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
+                      <logic:iterate offset="offset" length="1" id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
                         <html:hidden name="shukkinKibouNyuuryokuBeanList" property="registFlg" value="true" indexed="true"/>
                         <tr height="px">
                           <td width="40px" align="center" valign="middle">
