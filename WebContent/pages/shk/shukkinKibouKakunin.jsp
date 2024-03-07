@@ -32,7 +32,7 @@
     <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
     <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
     <script type="text/javascript" language="Javascript1.1">
-    <!--
+   
     /**
      * ŒŸõ
      */
@@ -45,7 +45,7 @@
     function openWindow(){
         window.open("/kikin/shiftHanrei.do?param=", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=520px, height=650px");
     }
-    -->
+   
     </script>
     <title>o‹ÎŠó–]Šm”F‰æ–Ê</title>
 

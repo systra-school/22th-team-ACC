@@ -116,8 +116,9 @@ public class ShukkinKibouDao extends AbstractDao{
             strSql.append("SELECT ");
             strSql.append("MSHAIN.SHAIN_ID, ");
             strSql.append("MSHAIN.SHAIN_NAME, ");
-            strSql.append("TSHIFT.YEAR_MONTH_DAY, ");
-            strSql.append("TSHIFT.KIBOU_SHIFT_ID, ");
+            strSql.append("NVL(TSHIFT.YEAR_MONTH_DAY,'-') as YEAR_MONTH_DAY, ");
+            
+            strSql.append("NVL( TSHIFT.KIBOU_SHIFT_ID, '-') as KIBOU_SHIFT_ID, ");
             strSql.append("TSHIFT.SYMBOL ");
             strSql.append("FROM ");
             strSql.append("M_SHAIN MSHAIN ");
@@ -138,6 +139,7 @@ public class ShukkinKibouDao extends AbstractDao{
             strSql.append("ORDER BY ");
             strSql.append("SHAIN_ID,");
             strSql.append("YEAR_MONTH_DAY");
+            
 
             PreparedStatement ps = connection.prepareStatement(strSql.toString());
 
@@ -179,9 +181,8 @@ public class ShukkinKibouDao extends AbstractDao{
                 dto.setShainName(rs.getString(M_shain.SHAIN_NAME.getName()));
                 dto.setYearMonthDay(rs.getString(T_Shift.YEAR_MONTH_DAY.getName()));
                 dto.setKibouShiftId(rs.getString(T_Shift.KIBOU_SHIFT_ID.getName()));
-				/*
-				 * if(dto.getKibouShiftId() == null) { dto.setKibouShiftId("-"); }
-				 */
+
+
                 dto.setKibouShiftSymbol(CommonUtils.changeNullToHyphen(rs.getString(M_shift.SYMBOL.getName())));
                 // 取得した値を戻り値のリストにセットする。
                 shukkinKibouKakuninDtoList.add(dto);

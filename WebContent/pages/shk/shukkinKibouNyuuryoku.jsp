@@ -21,7 +21,6 @@
 
 <bean:size id="dateBeanListSize" name="shukkinKibouNyuuryokuForm" property="dateBeanList"/>
 <bean:size id="listSize" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList"/>
-<bean:define id="showLength" value="16" type="java.lang.String"/>
 <bean:define id="color" value="" type="java.lang.String"/>
 
 

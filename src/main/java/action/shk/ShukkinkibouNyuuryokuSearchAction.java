@@ -117,14 +117,14 @@ public class ShukkinkibouNyuuryokuSearchAction extends ShukkinKibouAbstractActio
 			String shainId = "";
 			String shainName = "";
 
+
 			for (int i = 0; i < methods.length; i++) {
 				// "setShiftIdXX" のメソッドを動的に実行する
 				if (methods[i].getName().startsWith("setShiftId") && listSize > index) {
 					ShukkinKibouNyuuryokuDto ShukkinKibouNyuuryokuDto = ShukkinKibouNyuuryokuDtoList.get(index);
-					methods[i].invoke(kibouNyuuryokuBean, ShukkinKibouNyuuryokuDto.getShiftId());
+					methods[i].invoke(kibouNyuuryokuBean, ShukkinKibouNyuuryokuDto.getKibouShiftId());
 
 					shainId = ShukkinKibouNyuuryokuDto.getShainId();
-					shainName = ShukkinKibouNyuuryokuDto.getShainName();
 
 					index ++;
 				}
