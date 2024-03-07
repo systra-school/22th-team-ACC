@@ -27,23 +27,22 @@
 <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
 <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 <script type="text/javascript" language="Javascript1.1">
-    <!--
-
-    /**
-     * 登録へ
-     */
-    function regist() {
-        // サブミット
-        doSubmit('/kikin/kinmuJissekiNyuryokuKakuninRegist.do');
-    }
-    /**
-     * 検索
-     */
-    function submitSearch() {
-        doSubmit('/kikin/kinmuJissekiNyuryokuKakuninSearch.do');
-    }
-    -->
-    </script>
+<!--
+	/**
+	 * 登録へ
+	 */
+	function regist() {
+		// サブミット
+		doSubmit('/kikin/kinmuJissekiNyuryokuKakuninRegist.do');
+	}
+	/**
+	 * 検索
+	 */
+	function submitSearch() {
+		doSubmit('/kikin/kinmuJissekiNyuryokuKakuninSearch.do');
+	}
+	-->
+</script>
 <title>勤務実績入力画面</title>
 
 <link href="/kikin/pages/css/common.css" rel="stylesheet"
@@ -118,18 +117,19 @@
 											property="kadouDayDisp" /><br></td>
 									<bean:define id="youbi" name="kinmuJissekiNyuryokuKakuninList"
 										property="youbi" />
-
+										<bean:define id="shukujitsuFlg" name="kinmuJissekiNyuryokuKakuninList" property="shukujitsuFlg"/>
+										
 									<%
-                  if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
-                      color = "fontBlue";
-                  } else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi)) {
-                      color = "fontRed";
-                  } else {
-                      color = "fontBlack";
-                  }
-                  %>
+									if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
+										color = "fontBlue";
+									} else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi) || ((boolean)shukujitsuFlg)) {
+										color = "fontRed";
+									} else {
+										color = "fontBlack";
+									}
+									%>
 
-									<td width="50px" align="center" class="<%=color %>"><bean:write
+									<td width="50px" align="center" class="<%=color%>"><bean:write
 											name="kinmuJissekiNyuryokuKakuninList" property="youbi" /><br>
 									</td>
 									<td width="100px" align="center"><bean:write
