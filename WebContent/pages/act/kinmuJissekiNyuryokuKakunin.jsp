@@ -64,7 +64,7 @@
 				</tr>
 			</table>
 		</div>
-		<div id="gymBody" style="overflow-x: hidden;">
+		<div id="gymBody" style="overflow: auto;">
 			<html:form action="/shainMstMntRegist">
 
 				<div>
