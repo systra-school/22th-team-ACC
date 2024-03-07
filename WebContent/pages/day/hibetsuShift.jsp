@@ -5,13 +5,13 @@
 <%@page import="form.shk.ShukkinKibouKakuninForm"%>
 <%
 /**
- * ÉtÉ@ÉCÉãñºÅFhibetsuShift.jsp
+ * „Éï„Ç°„Ç§„É´ÂêçÔºöhibetsuShift.jsp
  *
- * ïœçXóöó
+ * Â§âÊõ¥Â±•Ê≠¥
  * 1.0  2010/09/13 Kazuya.Naraki
  */
 %>
-<%@page contentType="text/html; charset=Shift_JIS" pageEncoding="Shift_JIS"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="constant.RequestSessionNameConstant"%>
 <%@ page import="constant.CommonConstant"%>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
@@ -22,11 +22,11 @@
     int bodyRightDivWidth = 0;
     int bodyRightDivHeight = 0;
     int bodyLeftDivHeight = 0;
-    // É{ÉfÉBÉeÅ[ÉuÉãÇÃ td ÇÃïù
+    // „Éú„Éá„Ç£„ÉÜ„Éº„Éñ„É´„ÅÆ td „ÅÆÂπÖ
     int tdWidth = 150;
-    // É{ÉfÉBÉeÅ[ÉuÉãÇÃ tr ÇÃèc
+    // „Éú„Éá„Ç£„ÉÜ„Éº„Éñ„É´„ÅÆ tr „ÅÆÁ∏¶
     int trHeight = 50;
-    // ècÉXÉNÉçÅ[ÉãÉoÅ[ÇÃïù
+    // Á∏¶„Çπ„ÇØ„É≠„Éº„É´„Éê„Éº„ÅÆÂπÖ
     int scrollBarSize = 20;
     if (hibetsuShiftBeanListSize < 6) {
         bodyRightDivWidth = hibetsuShiftBeanListSize * tdWidth + scrollBarSize;
@@ -53,14 +53,14 @@
     <!--
 
     /**
-     * åüçı
+     * Ê§úÁ¥¢
      */
     function submitSearch() {
         doSubmit('/kikin/shukkinKibouKakuninShow.do');
     }
 
     /**
-     * ÉXÉNÉçÅ[ÉãÇìØä˙Ç≥ÇπÇÈ
+     * „Çπ„ÇØ„É≠„Éº„É´„ÇíÂêåÊúü„Åï„Åõ„Çã
      */
     function onScroll() {
         headRightTbl.scrollLeft = bodyRightTbl.scrollLeft;
@@ -68,7 +68,7 @@
     }
     -->
     </script>
-    <title>ì˙ï ÉVÉtÉgämîFâÊñ </title>
+    <title>Êó•Âà•„Ç∑„Éï„ÉàÁ¢∫Ë™çÁîªÈù¢</title>
 
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
@@ -78,13 +78,13 @@
         <table>
           <tr>
             <td id="headLeft">
-              <input value="ñﬂÇÈ" type="button" class="smlButton"  onclick="doSubmit('/kikin/hibetsuShiftBack.do')" />
+              <input value="Êàª„Çã" type="button" class="smlButton"  onclick="doSubmit('/kikin/hibetsuShiftBack.do')" />
             </td>
             <td id="headCenter">
-              ì˙ï ÉVÉtÉgämîFâÊñ 
+              Êó•Âà•„Ç∑„Éï„ÉàÁ¢∫Ë™çÁîªÈù¢
             </td>
             <td id="headRight">
-              <input value="ÉçÉOÉAÉEÉg" type="button" class="smlButton"  onclick="logout()" />
+              <input value="„É≠„Ç∞„Ç¢„Ç¶„Éà" type="button" class="smlButton"  onclick="logout()" />
             </td>
           </tr>
         </table>
@@ -93,19 +93,21 @@
         <div style="margin-left:80px;">
           <html:form>
             <div style="height: 20px">
-              ï\é¶îNåéÅF
-              <html:link href="/kikin/hibetsuShiftPage.do?paging=back">ëOì˙</html:link>
+              Ë°®Á§∫Âπ¥ÊúàÔºö
+              <html:link href="/kikin/hibetsuShiftPage.do?paging=back">ÂâçÊó•</html:link>
               <bean:write name="hibetsuShiftForm" property="yearMonthDayDisp"/>
-              <html:link href="/kikin/hibetsuShiftPage.do?paging=next">óÇì˙</html:link>
+              <html:link href="/kikin/hibetsuShiftPage.do?paging=next">ÁøåÊó•</html:link>
             </div>
-            <table border="0" cellpadding="0" cellspacing="0">
+            <!-- „ÉÜ„Éº„Éñ„É´„Ç∫„É¨„Å¶„ÅÑ„Çã‰øÆÊ≠£Ôºà„É™„É≥Ôºâ
+            ÂÖÉ„Ç≥„Éº„Éâ -->
+            <!-- <table border="0" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="154px" >
                   <div id="headLeftTbl" style="overflow-x: hidden;overflow-y: hidden;width: 154px;">
                     <table border="1" cellpadding="0" cellspacing="0" class="tblHeader">
                       <tr>
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        éûä‘
+                        ÊôÇÈñì
                         </td>
                       </tr>
                     </table>
@@ -133,122 +135,122 @@
                     <table border="1" cellpadding="0" cellspacing="0" class="tblBody">
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇOÅFÇOÇO&#xFF5E;ÇOÇPÅFÇOÇO
+                        ÔºêÔºêÔºöÔºêÔºê&#xFF5E;ÔºêÔºëÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇPÅFÇOÇO&#xFF5E;ÇOÇQÅFÇOÇO
+                        ÔºêÔºëÔºöÔºêÔºê&#xFF5E;ÔºêÔºíÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇQÅFÇOÇO&#xFF5E;ÇOÇRÅFÇOÇO
+                        ÔºêÔºíÔºöÔºêÔºê&#xFF5E;ÔºêÔºìÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇRÅFÇOÇO&#xFF5E;ÇO<%=tdWidth %>ÇO
+                        ÔºêÔºìÔºöÔºêÔºê&#xFF5E;Ôºê<%=tdWidth %>Ôºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇSÅFÇOÇO&#xFF5E;ÇOÇTÅFÇOÇO
+                        ÔºêÔºîÔºöÔºêÔºê&#xFF5E;ÔºêÔºïÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇTÅFÇOÇO&#xFF5E;ÇOÇUÅFÇOÇO
+                        ÔºêÔºïÔºöÔºêÔºê&#xFF5E;ÔºêÔºñÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇUÅFÇOÇO&#xFF5E;ÇOÇVÅFÇOÇO
+                        ÔºêÔºñÔºöÔºêÔºê&#xFF5E;ÔºêÔºóÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇVÅFÇOÇO&#xFF5E;ÇOÇWÅFÇOÇO
+                        ÔºêÔºóÔºöÔºêÔºê&#xFF5E;ÔºêÔºòÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇWÅFÇOÇO&#xFF5E;ÇOÇXÅFÇOÇO
+                        ÔºêÔºòÔºöÔºêÔºê&#xFF5E;ÔºêÔºôÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇOÇXÅFÇOÇO&#xFF5E;ÇPÇOÅFÇOÇO
+                        ÔºêÔºôÔºöÔºêÔºê&#xFF5E;ÔºëÔºêÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇOÅFÇOÇO&#xFF5E;ÇPÇPÅFÇOÇO
+                        ÔºëÔºêÔºöÔºêÔºê&#xFF5E;ÔºëÔºëÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇPÅFÇOÇO&#xFF5E;ÇPÇQÅFÇOÇO
+                        ÔºëÔºëÔºöÔºêÔºê&#xFF5E;ÔºëÔºíÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇQÅFÇOÇO&#xFF5E;ÇPÇRÅFÇOÇO
+                        ÔºëÔºíÔºöÔºêÔºê&#xFF5E;ÔºëÔºìÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇRÅFÇOÇO&#xFF5E;ÇPÇSÅFÇOÇO
+                        ÔºëÔºìÔºöÔºêÔºê&#xFF5E;ÔºëÔºîÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇSÅFÇOÇO&#xFF5E;ÇPÇTÅFÇOÇO
+                        ÔºëÔºîÔºöÔºêÔºê&#xFF5E;ÔºëÔºïÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇTÅFÇOÇO&#xFF5E;ÇPÇUÅFÇOÇO
+                        ÔºëÔºïÔºöÔºêÔºê&#xFF5E;ÔºëÔºñÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇUÅFÇOÇO&#xFF5E;ÇPÇVÅFÇOÇO
+                        ÔºëÔºñÔºöÔºêÔºê&#xFF5E;ÔºëÔºóÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇVÅFÇOÇO&#xFF5E;ÇPÇWÅFÇOÇO
+                        ÔºëÔºóÔºöÔºêÔºê&#xFF5E;ÔºëÔºòÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇWÅFÇOÇO&#xFF5E;ÇPÇXÅFÇOÇO
+                        ÔºëÔºòÔºöÔºêÔºê&#xFF5E;ÔºëÔºôÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇPÇXÅFÇOÇO&#xFF5E;ÇQÇOÅFÇOÇO
+                        ÔºëÔºôÔºöÔºêÔºê&#xFF5E;ÔºíÔºêÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇQÇOÅFÇOÇO&#xFF5E;ÇQÇPÅFÇOÇO
+                        ÔºíÔºêÔºöÔºêÔºê&#xFF5E;ÔºíÔºëÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇQÇPÅFÇOÇO&#xFF5E;ÇQÇQÅFÇOÇO
+                        ÔºíÔºëÔºöÔºêÔºê&#xFF5E;ÔºíÔºíÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇQÇQÅFÇOÇO&#xFF5E;ÇQÇRÅFÇOÇO
+                        ÔºíÔºíÔºöÔºêÔºê&#xFF5E;ÔºíÔºìÔºöÔºêÔºê
                         </td>
                       </tr>
                       <tr height="<%=trHeight %>px">
                         <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
-                        ÇQÇRÅFÇOÇO&#xFF5E;ÇQÇSÅFÇOÇO
+                        ÔºíÔºìÔºöÔºêÔºê&#xFF5E;ÔºíÔºîÔºöÔºêÔºê
                         </td>
                       </tr>
                     </table>
@@ -260,16 +262,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime00">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime00" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime00" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime00"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime00"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime00">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime00">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -279,7 +281,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime00">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime00" >
                                 <br>
@@ -295,16 +297,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime01">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime01" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime01" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime01"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime01"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime01">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime01">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -314,7 +316,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime01">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime01" >
                                 <br>
@@ -330,16 +332,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime02">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime02" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime02" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime02"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime02"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime02">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime02">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -349,7 +351,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime02">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime02" >
                                 <br>
@@ -365,16 +367,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime03">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime03" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime03" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime03"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime03"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime03">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime03">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -384,7 +386,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime03">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime03" >
                                 <br>
@@ -400,16 +402,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime04">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime04" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime04" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime04"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime04"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime04">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime04">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -419,7 +421,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime04">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime04" >
                                 <br>
@@ -435,16 +437,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime05">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime05" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime05" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime05"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime05"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime05">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime05">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -454,7 +456,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime05">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime05" >
                                 <br>
@@ -470,16 +472,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime06">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime06" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime06" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime06"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime06"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime06">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime06">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -489,7 +491,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime06">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime06" >
                                 <br>
@@ -505,16 +507,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime07">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime07" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime07" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime07"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime07"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime07">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime07">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -524,7 +526,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime07">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime07" >
                                 <br>
@@ -540,16 +542,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime08">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime08" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime08" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime08"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime08"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime08">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime08">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -559,7 +561,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime08">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime08" >
                                 <br>
@@ -575,16 +577,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime09">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime09" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime09" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime09"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime09"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime09">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime09">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -594,7 +596,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime09">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime09" >
                                 <br>
@@ -610,16 +612,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime10">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime10" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime10" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime10"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime10"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime10">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime10">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -629,7 +631,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime10">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime10" >
                                 <br>
@@ -645,16 +647,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime11">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime11" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime11" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime11"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime11"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime11">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime11">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -664,7 +666,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime11">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime11" >
                                 <br>
@@ -680,16 +682,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime12">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime12" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime12" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime12"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime12"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime12">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime12">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -699,7 +701,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime12">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime12" >
                                 <br>
@@ -715,16 +717,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime13">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime13" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime13" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime13"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime13"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime13">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime13">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -734,7 +736,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime13">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime13" >
                                 <br>
@@ -750,16 +752,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime14">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime14" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime14" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime14"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime14"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime14">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime14">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -769,7 +771,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime14">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime14" >
                                 <br>
@@ -785,16 +787,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime15">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime15" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime15" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime15"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime15"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime15">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime15">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -804,7 +806,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime15">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime15" >
                                 <br>
@@ -820,16 +822,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime16">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime16" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime16" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime16"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime16"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime16">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime16">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -839,7 +841,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime16">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime16" >
                                 <br>
@@ -855,16 +857,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime17">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime17" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime17" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime17"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime17"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime17">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime17">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -874,7 +876,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime17">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime17" >
                                 <br>
@@ -890,16 +892,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime18">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime18" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime18" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime18"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime18"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime18">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime18">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -909,7 +911,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime18">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime18" >
                                 <br>
@@ -925,16 +927,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime19">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime19" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime19" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime19"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime19"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime19">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime19">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -944,7 +946,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime19">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime19" >
                                 <br>
@@ -960,16 +962,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime20">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime20" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime20" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime20"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime20"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime20">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime20">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -979,7 +981,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime20">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime20" >
                                 <br>
@@ -995,16 +997,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime21">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime21" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime21" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime21"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime21"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime21">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime21">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -1014,7 +1016,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime21">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime21" >
                                 <br>
@@ -1030,16 +1032,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime22">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime22" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime22" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime22"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime22"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime22">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime22">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -1049,7 +1051,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime22">
-                          <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime22" >
                                 <br>
@@ -1065,16 +1067,16 @@
                       <tr height="<%=trHeight %>px">
                         <logic:iterate id="hibetsuShiftBean" name="hibetsuShiftForm" property="hibetsuShiftBeanList">
                           <logic:equal value="true" name="hibetsuShiftBean" property="boolTime23">
-                          <% // èoãŒó\íËÇÃéûä‘ë— %>
+                          <% // Âá∫Âã§‰∫àÂÆö„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center" bgcolor="LightPink">
                               <logic:empty name="hibetsuShiftBean" property="strTime23" >
                                 <br>
                               </logic:empty>
                               <logic:notEmpty name="hibetsuShiftBean" property="strTime23" >
 
-                                <bean:write name="hibetsuShiftBean" property="strTime23"/>ÅF
+                                <bean:write name="hibetsuShiftBean" property="strTime23"/>Ôºö
 
-                                <logic:equal value="èoãŒ" name="hibetsuShiftBean" property="strTime23">
+                                <logic:equal value="Âá∫Âã§" name="hibetsuShiftBean" property="strTime23">
                                   <bean:write name="hibetsuShiftBean" property="startTime"/>
                                   &#xFF5E;
                                   <bean:write name="hibetsuShiftBean" property="endTime"/>
@@ -1084,7 +1086,7 @@
                             </td>
                           </logic:equal>
                           <logic:equal value="false" name="hibetsuShiftBean" property="boolTime23">
-                            <% // èoãŒó\íËäOÇÃéûä‘ë— %>
+                            <% // Âá∫Âã§‰∫àÂÆöÂ§ñ„ÅÆÊôÇÈñìÂ∏Ø %>
                             <td width="<%=tdWidth %>px" nowrap="nowrap" align="center">
                               <logic:empty name="hibetsuShiftBean" property="strTime23" >
                                 <br>
@@ -1100,7 +1102,367 @@
                   </div>
                 </td>
               </tr>
-            </table>
+            </table> -->
+            <!-- „ÉÜ„Éº„Éñ„É´„Ç∫„É¨„Å¶„ÅÑ„Çã‰øÆÊ≠£Ôºà„É™„É≥Ôºâ
+            Êñ∞„Ç≥„Éº„Éâ -->
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                <td width="180px">
+                  <div id="headLeftTbl" style="overflow-x: hidden;overflow-y: hidden;width: 180px;">
+                    <table border="1" cellpadding="0" cellspacing="0" class="tblHeader">
+                      <tbody><tr>
+                        <td width="180px" nowrap="nowrap" align="center">
+                        ÊôÇÈñì
+                        </td>
+                      </tr>
+                    </tbody></table>
+                  </div>
+                </td>
+                <td width="100%" valign="top">
+                  <div id="headRightTbl" style="overflow-y: scroll;overflow-x: hidden;width: 320px; ">
+                    <table border="1" cellpadding="0" cellspacing="0" class="tblHeader">
+                      <tbody><tr>
+                        
+                          <td width="150px" nowrap="nowrap" align="center">
+                            Á§æÂì°2<br>
+                          </td>
+                        
+                          <td width="150px" nowrap="nowrap" align="center">
+                            Á§æÂì°3<br>
+                          </td>
+                        
+                      </tr>
+                    </tbody></table>
+                  </div>
+                </td>
+              </tr>
+            <tr height="100%">
+                <td valign="top">
+                  <div id="bodyLeftTbl" style="overflow-x:hidden;overflow-y: hidden;width: 180px;height:450px; ">
+                    <table border="1" cellpadding="0" cellspacing="0" class="tblBody">
+                      <tbody><tr height="50px">
+                        <td width="180px" nowrap="nowrap" align="center">
+                        ÔºêÔºêÔºöÔºêÔºêÔΩûÔºêÔºëÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºëÔºöÔºêÔºêÔΩûÔºêÔºíÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºíÔºöÔºêÔºêÔΩûÔºêÔºìÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºìÔºöÔºêÔºêÔΩûÔºêÔºîÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºîÔºöÔºêÔºêÔΩûÔºêÔºïÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºïÔºöÔºêÔºêÔΩûÔºêÔºñÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºñÔºöÔºêÔºêÔΩûÔºêÔºóÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºóÔºöÔºêÔºêÔΩûÔºêÔºòÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºòÔºöÔºêÔºêÔΩûÔºêÔºôÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºêÔºôÔºöÔºêÔºêÔΩûÔºëÔºêÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºêÔºöÔºêÔºêÔΩûÔºëÔºëÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºëÔºöÔºêÔºêÔΩûÔºëÔºíÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºíÔºöÔºêÔºêÔΩûÔºëÔºìÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºìÔºöÔºêÔºêÔΩûÔºëÔºîÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºîÔºöÔºêÔºêÔΩûÔºëÔºïÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºïÔºöÔºêÔºêÔΩûÔºëÔºñÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºñÔºöÔºêÔºêÔΩûÔºëÔºóÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºóÔºöÔºêÔºêÔΩûÔºëÔºòÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºòÔºöÔºêÔºêÔΩûÔºëÔºôÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºëÔºôÔºöÔºêÔºêÔΩûÔºíÔºêÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºíÔºêÔºöÔºêÔºêÔΩûÔºíÔºëÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºíÔºëÔºöÔºêÔºêÔΩûÔºíÔºíÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºíÔºíÔºöÔºêÔºêÔΩûÔºíÔºìÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                      <tr height="50px">
+                        <td width="‚Äú180px‚Äù" nowrap="nowrap" align="center">
+                        ÔºíÔºìÔºöÔºêÔºêÔΩûÔºíÔºîÔºöÔºêÔºê
+                        </td>
+                      </tr>
+                    </tbody>
+</table>
+                  </div>
+                </td>
+                <td width="100%" valign="top">
+                  <div id="bodyRightTbl" style="overflow-x:hidden;overflow-y: auto;width: 320px;height:450px;" onscroll="onScroll();">
+                    <table border="1" cellpadding="0" cellspacing="0" class="tblBody">
+                      <tbody><tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                      <tr height="50px">
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                            <td width="150px" nowrap="nowrap" align="center">
+                                <br>
+                            </td>
+                      </tr>
+                    </tbody></table>
+                  </div>
+                </td>
+              </tr></tbody></table>
           </html:form>
         </div>
       </div>
@@ -1108,13 +1470,13 @@
         <table>
           <tr>
             <td id="footLeft">
-              Å@
+              „ÄÄ
             </td>
             <td id="footCenter">
-              Å@
+              „ÄÄ
             </td>
             <td id="footRight">
-              Å@
+              „ÄÄ
             </td>
           </tr>
         </table>
