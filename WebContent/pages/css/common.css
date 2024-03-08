@@ -4,15 +4,16 @@
 body {
     background-color: #66CCFF;
     overflow: hidden;
+    min-width: 750px;
 }
 errorbody {
     background-color: red;
+    min-width: 750px;
 }
 #wrapper {
     width:100%;
     padding:0px;
 }
-
 
 /*
 * ヘッダー、フッター共通定義
@@ -31,6 +32,7 @@ errorbody {
     top: 2px;
     height: 40px;
     width:100%;
+    min-width: 750px;
 }
 #headLeft {
     width:200px;
@@ -70,22 +72,20 @@ errorbody {
 */
 #footer {
     bottom: 1%;
-    height: 90px;
+    height: 100px;
+    min-width: 750px;
 }
 #footLeft {
-    float:left;
-    width:400px;
-    text-align:left;
+    width: 300px;
+    text-align: left;
 }
 #footCenter {
-    float:left;
-    width:400px;
-    text-align:center;
+    width: 600px;
+    text-align: center;
 }
 #footRight {
-    float:left;
-    width:400px;
-    text-align:right;
+    width: 300px;
+    text-align: right;
 }
 /*
 * エラーページ ヘッダー、フッター共通定義
@@ -194,3 +194,4 @@ errorbody {
 .fontRed {
     color: red;
 }
+
