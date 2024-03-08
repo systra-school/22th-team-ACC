@@ -22,7 +22,7 @@
 <bean:size id="dateBeanListSize" name="shukkinKibouKakuninForm"  property="dateBeanList"/>
 <bean:define id="offset" name="shukkinKibouKakuninForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
-<bean:define id="showLength" value="19" type="java.lang.String"/>	<!-- 3/8 value="18"¨@"19"‚ÖC³i‚‹´j -->
+<bean:define id="showLength" value="18" type="java.lang.String"/>
 <html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
