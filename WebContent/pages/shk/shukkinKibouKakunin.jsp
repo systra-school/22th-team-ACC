@@ -22,7 +22,7 @@
 <bean:size id="dateBeanListSize" name="shukkinKibouKakuninForm"  property="dateBeanList"/>
 <bean:define id="offset" name="shukkinKibouKakuninForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
-<bean:define id="showLength" value="18" type="java.lang.String"/>
+<bean:define id="showLength" value="19" type="java.lang.String"/>	<!-- 3/8 value="18"→　"19"へ修正（高橋） -->
 <html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
@@ -68,7 +68,8 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody" style="overflow: hidden;">
+      <!-- 3/7　次行でスクロールバーを表示するように修正（高橋） -->
+      <div id="gymBody" style="overflow: auto;">
         <div style="margin-left:10px;">
           <html:form action="/shukkinKibouKakuninInit" >
             表示年月：

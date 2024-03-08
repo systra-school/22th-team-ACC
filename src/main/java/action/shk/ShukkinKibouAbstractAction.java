@@ -18,6 +18,6 @@ import org.apache.struts.action.Action;
 public abstract class ShukkinKibouAbstractAction extends Action {
     // ログ出力クラス
     protected Log log = LogFactory.getLog(this.getClass());
-    // 表示データ数
-    protected final int SHOW_LENGTH = 18;
+    // 表示データ数		3/8 SHOW_LENGTH = 18 → 19へ修正（高橋）
+    protected final int SHOW_LENGTH = 19;
 }
