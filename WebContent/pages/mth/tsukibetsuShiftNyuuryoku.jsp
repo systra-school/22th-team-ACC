@@ -21,7 +21,7 @@
 
 <bean:size id="dateBeanListSize" name="tsukibetsuShiftNyuuryokuForm" property="dateBeanList"/>
 <bean:size id="listSize" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList"/>
-<bean:define id="showLength" value="12" type="java.lang.String"/> <!-- value 16->12に変更（リン）テーブルが社員１２名まで表示 -->
+<bean:define id="showLength" value="16" type="java.lang.String"/> <!-- value 16->12に変更（リン）テーブルが社員１２名まで表示 -->
 <bean:define id="offset" name="tsukibetsuShiftNyuuryokuForm" property="offset" />
 <bean:define id="color" value="" type="java.lang.String"/>
 <bean:define id="cntPage" name="tsukibetsuShiftNyuuryokuForm" property="cntPage" type="java.lang.Integer"/>
