@@ -59,7 +59,16 @@
 					</td>
 					<td id="headCenter">勤務実績入力</td>
 					<td id="headRight"><input value="ログアウト" type="button"
-						class="smlButton" onclick="logout()" /></td>
+						class="smlButton" onclick="logout()" />
+					<div style="width: 284px; text-align: right;">
+								社員ID&nbsp;
+								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
+									property="shainId" />
+								：社員名&nbsp;
+								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
+									property="shainName" />
+					</div>	
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -77,14 +86,7 @@
 										property="yearMonthCmbMap" value="key" label="value" />
 								</html:select>
 							</div>
-							<div style="width: 284px; text-align: right;">
-								社員ID&nbsp;
-								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
-									property="shainId" />
-								：社員名&nbsp;
-								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
-									property="shainName" />
-							</div>
+							
 							<br>
 						</div>
 						<table class="tblHeader" border="1" cellpadding="0"
