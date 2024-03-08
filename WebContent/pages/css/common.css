@@ -18,7 +18,7 @@ errorbody {
 /*
 * ヘッダー、フッター共通定義
 */
-#header,#gymBody,#footer {
+#header,#footer {
     width: 100%;
     margin: 0px;
     padding: 5px;
@@ -65,6 +65,10 @@ errorbody {
 #gymBody {
     height: 585px;	/* 3/8 表示社員数が固定のページで縦スクロールを表示しなくても確認できるように修正（高橋） */
    	overflow: auto;
+   	width: 100%;
+    margin: 0px;
+    padding: 0px; /* 5px ->0px 3/8 テーブルの１行目固定して、下ロースしてもテーブルの上にはめだせないように修正（リン) */
+    background-color: #66CCFF;
 }
 
 /*

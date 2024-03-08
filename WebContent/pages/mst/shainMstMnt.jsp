@@ -215,28 +215,29 @@
             </table>
           </div>-->
           <!-- 新コード↓ -->
-          <div style="overflow: auto;width:1030px; margin-left:100px ">
+          
     <table border="1" cellpadding="0" cellspacing="0">
-        <tr class="tblHeader" >
-            <td width="200px" align="center">
+         <tr class="tblHeader" style=" top: 0;position: sticky;z-index:1;" > <!--3/8 テーブルの一行目固定修正 ２１８～２４０（リン） -->
+            <th width="200px" align="center">
                 社員ＩＤ
-            </td>
-            <td width="200px" align="center">
+            </th>
+            <th style="position: sticky;"  width="200px" align="center">
                 パスワード
-            </td>
-            <td width="200px" align="center">
+            </th>
+            <th style="position: sticky;"  width="200px" align="center">
                 社員名
-            </td>
-            <td width="200px" align="center">
+            </th>
+            <th style="position: sticky;"  width="200px" align="center">
                 社員名カナ
-            </td>
-            <td width="100px" align="center">
+            </th>
+            <th style="position: sticky;"  width="100px" align="center">
                 権限
-            </td>
-            <td width="100px" align="center">
+            </th>
+            <th style="position: sticky;"  width="100px" align="center">
                 削除
-            </td>
+            </th>
         </tr>
+        <div style="overflow-y: auto;width:1030px; margin-left:100px ">
         <logic:iterate indexId="idx" id="shainMstMntBeanList" name="shainMstMntForm" property="shainMstMntBeanList">
             <bean:define id="shainId" name= "shainMstMntBeanList" property="shainId" type="java.lang.String"/>
             <bean:define id="selectKengenId" name= "shainMstMntBeanList" property="kengenId" type="java.lang.String"/>
