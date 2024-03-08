@@ -63,8 +63,8 @@ errorbody {
 * 業務body定義
 */
 #gymBody {
-    height: 500px;
-    overflow: auto;
+    height: 585px;	/* 3/8 表示社員数が固定のページで縦スクロールを表示しなくても確認できるように修正（高橋） */
+   	overflow: auto;
 }
 
 /*

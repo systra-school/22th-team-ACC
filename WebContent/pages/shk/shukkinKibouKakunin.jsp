@@ -68,8 +68,7 @@
           </tr>
         </table>
       </div>
-      <!-- 3/7　次行でスクロールバーを表示するように修正（高橋） -->
-      <div id="gymBody" style="overflow: auto;">
+      <div id="gymBody">
         <div style="margin-left:10px;">
           <html:form action="/shukkinKibouKakuninInit" >
             表示年月：
