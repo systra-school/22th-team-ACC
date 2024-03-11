@@ -39,7 +39,7 @@
     }
     
     function ShukkinKibouKakunin() {
-    	window.open("/kikin//shukkinKibouKakuninSubInit.do");
+    	window.open("/kikin//shukkinKibouKakuninSubInit.do", null, "menubar=no, toolbar=no, scrollbars=auto, resizable=yes, width=1000px, height=650px");
 	}
     
     /**

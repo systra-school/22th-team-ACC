@@ -77,7 +77,11 @@ public class LoginAction extends Action {
         LoginDto loginDto = loginLogic.getShainData(loginForm);
 
         if (CheckUtils.isEmpty(loginDto)) {
+        	req.setAttribute("error", true);
+        	req.getRequestDispatcher("login.jsp");
+        	
             forward = "error";
+            
         } else {
 
             // ログインユーザ保持用Dtoを作成する
