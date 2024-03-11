@@ -80,7 +80,8 @@ String color = "";
             <bean:write name="shukkinKibouKakuninForm" property="cntPage"/>/
             <bean:write name="shukkinKibouKakuninForm" property="maxPage"/>
 
-              <table width="950px" cellpadding="0" cellspacing="0">
+			<%-- 3/11 ˆÈ‰º‚Åƒe[ƒuƒ‹‚Ì‰¡•C³	width="950 ¨ 1390px"(‚‹´) --%>
+              <table width="1390px" cellpadding="0" cellspacing="0">
                 <tr>
                   <td width="150px" valign="top">
                     <table border="1" cellpadding="0" cellspacing="0">
@@ -104,7 +105,8 @@ String color = "";
                     </table>
                   </td>
                   <td>
-                    <div style="overflow-x: auto;overflow-y: hidden; width:800px;height: 100%; ">
+                  <%-- 3/11 ˆÈ‰º‚Ådiv‚Ì‰¡•C³	width="950 ¨ 1240px"(‚‹´) --%>
+                    <div style="overflow-x: auto;overflow-y: hidden; width:1240px;height: 100%; ">
                       <table border="1" cellpadding="0" cellspacing="0">
                         <tr class="tblHeader" >
                           <td width="40px" align="center" valign="middle">
