@@ -151,7 +151,7 @@ if (listSize > intShowLength) {
                   </table>
                 </td>
                 <td valign="top">   <!-- valign="top"追加（リン） -->
-                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) +80 %>px; text-align:center;"> <!--10->80に変更 （リン） -->
+                  <div style="overflow-x: auto;overflow-y: hidden; width:985px;height: <%=heightSize * (listSize + 2) + 95 %>px; text-align:center;"> <%-- 10->80に変更 （リン）/ 80→95へ修正（高橋） --%>
                     <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                       <tr height="<%=heightSize %>px">
                         <td width="40px" align="center">
@@ -277,7 +277,7 @@ if (listSize > intShowLength) {
                       </tr>
                       <logic:iterate offset="offset" length="<%=showLength %>" id="tsukibetsuShiftNyuuryokuBeanList" name="tsukibetsuShiftNyuuryokuForm" property="tsukibetsuShiftNyuuryokuBeanList">
                         <html:hidden name="tsukibetsuShiftNyuuryokuBeanList" property="registFlg" value="true" indexed="true"/>
-                        <tr height="25.6px">
+                        <tr height="26px"><%-- height="25.6px"→"26px"へ修正（高橋） --%>
                           <td width="30px" align="center" valign="middle">
                             <html:select property="shiftId01" name="tsukibetsuShiftNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="tsukibetsuShiftNyuuryokuForm"
