@@ -49,11 +49,11 @@ public class LogoutAction extends Action {
 
         // フォワードキー
         String forward = CommonConstant.SUCCESS;
-
+        req.setAttribute("error", false);
         // 全てのセッションを削除する。
         @SuppressWarnings("unchecked")
         Enumeration<String> sessionEnum = session.getAttributeNames();
-
+        
         while (sessionEnum.hasMoreElements()) {
             String sessionKey = sessionEnum.nextElement();
             session.removeAttribute(sessionKey);

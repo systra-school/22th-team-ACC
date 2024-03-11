@@ -16,17 +16,14 @@
 <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
 <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 <script type="text/javascript" language="Javascript1.1">
-/*     window.onload= ()=> {
-    if(!(boolean)request.getAttribute("error")){
-    	
-    		alert(getMessageCodeOnly(E-MSG-000002));	
+
+window.onload = function() {
+    var errorAttribute = '<%=request.getAttribute("error")%>';
+
+    if(errorAttribute && errorAttribute.toLowerCase() === 'true'){
+        alert(getMessageCodeOnly("E-MSG-000002"));
     }
-    } */
-    window.onload = function() {
-     	if('<%=request.getAttribute("error")%>'){
-     		alert(getMessageCodeOnly("E-MSG-000002"));
-     	} 
-    }
+}
     
     </script>
 <title>ÉçÉOÉCÉìâÊñ Login</title>

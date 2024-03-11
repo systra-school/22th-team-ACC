@@ -37,6 +37,7 @@ public class LoginAction extends Action {
 
     // ログ出力クラス
     private Log log = LogFactory.getLog(this.getClass());
+    boolean error = false;
 
     /**
      * ログイン処理のアクション
@@ -77,16 +78,15 @@ public class LoginAction extends Action {
         LoginDto loginDto = loginLogic.getShainData(loginForm);
 
         if (CheckUtils.isEmpty(loginDto)) {
-        	req.setAttribute("error", true);
-        	req.getRequestDispatcher("login.jsp");
-        	
-            forward = "error";
+        	error = true;
+        	req.setAttribute("error", error);
+        	forward = "error";
             
         } else {
 
             // ログインユーザ保持用Dtoを作成する
             this.createLoginUserData(session, loginDto);
-
+        	req.setAttribute("error", error);
             forward = CommonConstant.SUCCESS;
         }
 
