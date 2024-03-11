@@ -94,11 +94,12 @@ if (hibetsuShiftBeanListSize < 6) {
 						<bean:write name="hibetsuShiftForm" property="yearMonthDayDisp" />
 						<html:link href="/kikin/hibetsuShiftPage.do?paging=next">翌日</html:link>
 					</div>
-					<table border="0" cellpadding="0" cellspacing="0">
+					<table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate;">
 						<tr>
 							<td>
+								<!-- 3/11　固定欄の右ボーダーラインの消えるのを修正（リン）下記コードに追加：border-collapse:separate;border-bottom: 0px solid #000000;border-right: 1px solid #000000;position: sticky;top: 0;left: 0;z-index: 1; -->
 								<div id="headLeftTbl"
-									style="overflow-x: hidden; overflow-y: hidden; width: <%=tdWidth%>px;">
+									style="overflow-x: hidden; overflow-y: hidden; width: <%=tdWidth%>px;border-collapse:separate;border-bottom: 0px solid #000000;border-right: 1px solid #000000;position: sticky;top: 0;left: 0;z-index: 1;">
 									<table border="1" cellpadding="0" cellspacing="0"
 										class="tblHeader">
 										<tr>
@@ -129,8 +130,9 @@ if (hibetsuShiftBeanListSize < 6) {
 					<table border="0" cellpadding="0" cellspacing="0">
 						<tr height="100%">
 							<td valign="top">
+								<!-- 3/11　固定欄の右ボーダーラインの消えるのを修正（リン）下記コードに追加：border-collapse:separate;border-bottom: 0px solid #000000;border-right: 1px solid #000000;position: sticky;top: 0;left: 0;z-index: 1; -->
 								<div id="bodyLeftTbl"
-									style="overflow: hidden;width: <%=tdWidth%>px;height:<%=bodyLeftDivHeight%>px; ">
+									style="overflow: hidden;width: <%=tdWidth%>px;height:<%=bodyLeftDivHeight%>px; border-collapse:separate;border-bottom: 0px solid #000000;border-right: 1px solid #000000;position: sticky;top: 0;left: 0;z-index: 1;">
 									<table border="1" cellpadding="0" cellspacing="0"
 										class="tblBody">
 										<tr height="<%=trHeight%>px">
