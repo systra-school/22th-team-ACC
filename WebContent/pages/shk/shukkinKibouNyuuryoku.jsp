@@ -243,7 +243,7 @@
                       </tr>
                       <logic:iterate offset="offset" length="1" id="shukkinKibouNyuuryokuBeanList" name="shukkinKibouNyuuryokuForm" property="shukkinKibouNyuuryokuBeanList">
                         <html:hidden name="shukkinKibouNyuuryokuBeanList" property="registFlg" value="true" indexed="true"/>
-                        <tr height="px">
+                        <tr height="26px"><%-- 3/11 height="px"¨"26px"‚ÖC³i‚‹´j --%>
                           <td width="40px" align="center" valign="middle">
                             <html:select property="shiftId01" name="shukkinKibouNyuuryokuBeanList" indexed="true">
                             <html:optionsCollection name="shukkinKibouNyuuryokuForm"
