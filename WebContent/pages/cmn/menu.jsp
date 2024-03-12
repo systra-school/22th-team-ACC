@@ -23,7 +23,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table style="margin-left: auto; margin-right: auto;"><%-- 3/12 No.105、106：全体を画面中央配置へ修正（高橋） style以下を追加 --%>
           <tr>
             <td id="headLeft">
               　
@@ -47,7 +47,7 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <div id="gymBody" style="display: flex; justify-content: center; "><%-- 3/12 No.105、106：全体を画面中央配置へ修正（高橋） style以下を追加 --%>
         <logic:equal name="<%=RequestSessionNameConstant.SESSION_CMN_LOGIN_USER_INFO %>"
                      property="kengenId"
                      value="<%=CommonConstant.Kengen.KANRISYA.getId() %>">
