@@ -137,7 +137,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table align="center"> <!-- 3/12　全体は画面の真ん中にあるように修正（リン）align="center"追加 -->
           <tr>
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shainMstMntBack.do')" />
@@ -151,7 +151,7 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <div id="gymBody" align="center"> <!-- 3/12　全体は画面の真ん中にあるように修正（リン）align="center"追加 -->
         <html:form action="/shainMstMntUpdate">      
         <!--テーブルがズレているのを修正、１つテーブルにまとめ（リン）
         元コード↓-->
@@ -271,7 +271,7 @@
         </html:form>
       </div>
       <div id="footer">
-        <table>
+        <table align="center"> <!-- 3/12 全体は画面の真ん中にあるように修正（リン）align="center"追加 -->
           <tr>
             <td id="footLeft">
               　
