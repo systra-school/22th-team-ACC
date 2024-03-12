@@ -54,6 +54,7 @@ String color = "";
 					<td id="headRight"><input value="ログアウト" type="button"
 						class="smlButton" onclick="logout()" />
 					<div style="float: left; width: 244px; text-align: left;">
+					<html:form action="/shainMstMntRegist">
 						社員名：
 						<html:select name="kinmuJissekiKakuninForm" property="shainId"
 							onchange="submitSearch()">
@@ -66,7 +67,7 @@ String color = "";
 			</table>
 		</div>
 		<div id="gymBody">
-			<html:form action="/shainMstMntRegist">
+			
 				<div style="float: left; width: 100%;">
 					<div
 						style="float: left; width: 844px; text-align: left; margin-left: 100px;">
