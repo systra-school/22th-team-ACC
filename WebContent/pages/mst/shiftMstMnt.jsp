@@ -178,7 +178,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table align="center"> <!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン） align="center"追加 -->
           <tr>
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shiftMstMntBack.do')" />
@@ -256,11 +256,11 @@
           </div>
         </html:form>
       </div>-->
-      <div id="gymBody">
+      <div id="gymBody"  style="position:relative; padding-bottom:200px; "><!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン） style="position:relative; padding-bottom:200px; "追加 -->
         <html:form action="/shiftMstMntUpdate">
-          <div style="width: 600px; margin-left:300px;">
-            <table  border="1" cellpadding="0" cellspacing="0">
-              <tr class="tblHeader" >
+          <div  align="center"><!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン） align="center"追加 -->          
+            <table  border="1" cellpadding="0" cellspacing="0" >               
+            <tr class="tblHeader" >
                 <td width="100px" align="center">
                   シフト名
                 </td>
@@ -316,17 +316,16 @@
           </div>
         </html:form>
       </div>
-      <div id="footer">
-        <table>
+      <div id="footer" style="position:absolute;  height:200px; "><!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン）style="position:absolute;  height:200px; 追加 -->
+        <table align="center"> <!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン） align="center"追加 -->
           <tr>
-            <td id="footLeft">
-              　
+            <td id="footLeft">              
             </td>
-            <td id="footCenter">
-              　
+            <td id="footCenter">              
             </td>
-            <td id="footRight">
+            <td id="footRight" style="display: flex;justify-content: flex-start;"> <!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン）style="display: flex;justify-content: flex-start;"追加 -->
               <input value="新規登録" type="button" class="smlButton"  onclick="shiftMstMntRegistInit()" />
+              　
               <input value="更新" type="button" class="smlButton"  onclick="shiftMstMntUpdate()" />
             </td>
           </tr>
