@@ -18,9 +18,9 @@
 <script type="text/javascript" language="Javascript1.1">
 
 window.onload = function() {
-    var errorAttribute = '<%=request.getAttribute("error")%>';
+    var error = '<%=request.getAttribute("error")%>';
 
-    if(errorAttribute && errorAttribute.toLowerCase() === 'true'){
+    if(error && error.toLowerCase() === 'true'){
         alert(getMessageCodeOnly("E-MSG-000002"));
     }
 }

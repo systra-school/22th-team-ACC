@@ -86,10 +86,9 @@ public class LoginAction extends Action {
 
             // ログインユーザ保持用Dtoを作成する
             this.createLoginUserData(session, loginDto);
-        	req.setAttribute("error", error);
             forward = CommonConstant.SUCCESS;
         }
-
+        req.setAttribute("error", error);
         return mapping.findForward(forward);
     }
 

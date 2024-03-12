@@ -1,5 +1,9 @@
 <!-- kinmuJissekiNyuryokuKakunin.jsp -->
 <%@page import="constant.CommonConstant.DayOfWeek"%>
+<%@page import="business.logic.utils.CheckUtils"%>
+<%@page import="form.common.DateBean"%>
+<%@page import="java.util.List"%>
+<%@page import="form.act.KinmuJissekiNyuryokuKakuninForm"%>
 <%
 /**
  * ファイル名：kinmuJissekiNyuryokuKakunin.jsp
@@ -27,21 +31,79 @@
 <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
 <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 <script type="text/javascript" language="Javascript1.1">
-<!--
-	/**
-	 * 登録へ
-	 */
-	function regist() {
-		// サブミット
-		doSubmit('/kikin/kinmuJissekiNyuryokuKakuninRegist.do');
-	}
+function regist() {
+	var listSize = <%= dateBeanListSize %>;
+    // エラーメッセージ
+    var errorMsg = '';
+    var startTimeErrMsg = '';
+    var endTimeErrMsg = '';
+    var breakTimeErrMsg = '';
+    
+    with(document.forms[0].elements){
+    	for(var i = 0; i < listSize; i++){
+    		var startTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').value;
+    		 var endTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').value;
+    		 var breakTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').value;
+    		 
+    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'white';
+    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'white';
+    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'white';
+    		 
+    		// 時間チェック
+             if (!startTimeErrMsg) {
+                 if (!checkTime(startTime)) {
+                     var strArr = ['開始時間'];
+                     startTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
+                 }
+             }
+             if (!endTimeErrMsg) {
+                 if (!checkTime(endTime)) {
+                     var strArr = ['終了時間'];
+                     endTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
+                 }
+             }
+             if (!breakTimeErrMsg) {
+                 if (!checkTime(breakTime)) {
+                     var strArr = ['休憩時間'];
+                     breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
+                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'red';
+                 }
+             }
+                 if (!checkTimeCompare(startTime, endTime)) {
+                     if (checkTime(startTime) && checkTime(endTime)) {
+                         fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
+                         namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
+                         namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
+                     }
+                   }
+
+          
+           }
+
+           // エラーメッセージ	3/5 シフト名とシンボルのエラーメッセージ追加(高橋)
+    }
+           errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
+             
+
+             if (errorMsg) {
+                 alert(errorMsg);
+                 // エラー
+                 return false;
+             }
+
+             document.forms[0].submit();
+    		
+    	}
+
 	/**
 	 * 検索
 	 */
 	function submitSearch() {
 		doSubmit('/kikin/kinmuJissekiNyuryokuKakuninSearch.do');
 	}
-	-->
+
 </script>
 <title>勤務実績入力画面</title>
 
@@ -60,20 +122,20 @@
 					<td id="headCenter">勤務実績入力</td>
 					<td id="headRight"><input value="ログアウト" type="button"
 						class="smlButton" onclick="logout()" />
-					<div style="width: 284px; text-align: right;">
-								社員ID&nbsp;
-								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
-									property="shainId" />
-								：社員名&nbsp;
-								<bean:write name="kinmuJissekiNyuryokuKakuninForm"
-									property="shainName" />
-					</div>	
-					</td>
+						<div style="width: 284px; text-align: right;">
+							社員ID&nbsp;
+							<bean:write name="kinmuJissekiNyuryokuKakuninForm"
+								property="shainId" />
+							：社員名&nbsp;
+							<bean:write name="kinmuJissekiNyuryokuKakuninForm"
+								property="shainName" />
+						</div></td>
 				</tr>
 			</table>
 		</div>
 		<div id="gymBody" style="overflow: auto;">
-			<html:form action="/shainMstMntRegist">
+			x
+			<html:form action="/kinmuJissekiNyuryokuKakuninRegist">
 
 				<div>
 					<div style="overflow: hidden; width: 1080px; margin-left: 80px;">
@@ -86,7 +148,7 @@
 										property="yearMonthCmbMap" value="key" label="value" />
 								</html:select>
 							</div>
-							
+
 							<br>
 						</div>
 						<table class="tblHeader" border="1" cellpadding="0"
@@ -119,8 +181,10 @@
 											property="kadouDayDisp" /><br></td>
 									<bean:define id="youbi" name="kinmuJissekiNyuryokuKakuninList"
 										property="youbi" />
-										<bean:define id="shukujitsuFlg" name="kinmuJissekiNyuryokuKakuninList" property="shukujitsuFlg"/>
-										
+									<bean:define id="shukujitsuFlg"
+										name="kinmuJissekiNyuryokuKakuninList"
+										property="shukujitsuFlg" />
+
 									<%
 									if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
 										color = "fontBlue";
@@ -136,7 +200,6 @@
 									</td>
 									<td width="100px" align="center"><bean:write
 											name="kinmuJissekiNyuryokuKakuninList" property="symbol" /><br>
-									</td>
 									<td width="100px" align="center"><html:text
 											style="text-align:center" size="5" maxlength="5"
 											name="kinmuJissekiNyuryokuKakuninList" property="startTime"
