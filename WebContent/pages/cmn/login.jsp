@@ -33,7 +33,7 @@ window.onload = function() {
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<table>
+			<table align="center"> <!-- 3/12「ログイン」はいつでも真ん中にあるように修正（リン） align="center"追加-->
 				<tr>
 					<td id="headLeft"></td>
 					<td id="headCenter">ログイン</td>
