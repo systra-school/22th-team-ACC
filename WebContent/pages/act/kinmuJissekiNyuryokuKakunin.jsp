@@ -31,71 +31,84 @@
 <script type="text/javascript" src="/kikin/pages/js/checkCommon.js"></script>
 <script type="text/javascript" src="/kikin/pages/js/message.js"></script>
 <script type="text/javascript" language="Javascript1.1">
-function regist() {
-	var listSize = <%= dateBeanListSize %>;
-    // エラーメッセージ
-    var errorMsg = '';
-    var startTimeErrMsg = '';
-    var endTimeErrMsg = '';
-    var breakTimeErrMsg = '';
-    
-    with(document.forms[0].elements){
-    	for(var i = 0; i < listSize; i++){
-    		var startTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').value;
-    		 var endTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').value;
-    		 var breakTime = namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').value;
-    		 
-    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'white';
-    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'white';
-    		 namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'white';
-    		 
-    		// 時間チェック
-             if (!startTimeErrMsg) {
-                 if (!checkTime(startTime)) {
-                     var strArr = ['開始時間'];
-                     startTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
-                 }
-             }
-             if (!endTimeErrMsg) {
-                 if (!checkTime(endTime)) {
-                     var strArr = ['終了時間'];
-                     endTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
-                 }
-             }
-             if (!breakTimeErrMsg) {
-                 if (!checkTime(breakTime)) {
-                     var strArr = ['休憩時間'];
-                     breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
-                     namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].breakTime').style.backgroundColor = 'red';
-                 }
-             }
-                 if (!checkTimeCompare(startTime, endTime)) {
-                     if (checkTime(startTime) && checkTime(endTime)) {
-                         fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
-                         namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].startTime').style.backgroundColor = 'red';
-                         namedItem('kinmuJissekiNyuryokuKakuninList['+ i +'].endTime').style.backgroundColor = 'red';
-                     }
-                   }
+	function regist() {
+		var listSize =
+<%=dateBeanListSize%>
+	;
+		// エラーメッセージ
+		var errorMsg = '';
+		var startTimeErrMsg = '';
+		var endTimeErrMsg = '';
+		var breakTimeErrMsg = '';
+		var fromToErrMsg = '';
+		with (document.forms[0].elements) {
+			for (var i = 0; i < listSize; i++) {
+				var startTime = namedItem('kinmuJissekiNyuryokuKakuninList['
+						+ i + '].startTime').value;
+				var endTime = namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+						+ '].endTime').value;
+				var breakTime = namedItem('kinmuJissekiNyuryokuKakuninList['
+						+ i + '].breakTime').value;
 
-          
-           }
+				namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+						+ '].startTime').style.backgroundColor = 'white';
+				namedItem('kinmuJissekiNyuryokuKakuninList[' + i + '].endTime').style.backgroundColor = 'white';
+				namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+						+ '].breakTime').style.backgroundColor = 'white';
+				
+				if(startTime || endTime || breakTime){
+					// 時間チェック
+					if (!startTimeErrMsg) {
+						if (!checkTime(startTime)) {
+							var strArr = [ '開始時間' ];
+							startTimeErrMsg = getMessage('E-MSG-000004', strArr);
+							namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+									+ '].startTime').style.backgroundColor = 'red';
+						}
+					}
+					if (!endTimeErrMsg) {
+						if (!checkTime(endTime)) {
+							var strArr = [ '終了時間' ];
+							endTimeErrMsg = getMessage('E-MSG-000004', strArr);
+							namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+									+ '].endTime').style.backgroundColor = 'red';
+						}
+					}
+					if (!breakTimeErrMsg) {
+						if (!checkTime(breakTime)) {
+							var strArr = [ '休憩時間' ];
+							breakTimeErrMsg = getMessage('E-MSG-000004', strArr);
+							namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+									+ '].breakTime').style.backgroundColor = 'red';
+						}
+					}
+					if (!checkTimeCompare(startTime, endTime)) {
+						if (checkTime(startTime) && checkTime(endTime)) {
+							fromToErrMsg = getMessageCodeOnly('E-MSG-000005');
+							namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+									+ '].startTime').style.backgroundColor = 'red';
+							namedItem('kinmuJissekiNyuryokuKakuninList[' + i
+									+ '].endTime').style.backgroundColor = 'red';
+						}
+					}
+				}
 
-           // エラーメッセージ	3/5 シフト名とシンボルのエラーメッセージ追加(高橋)
-    }
-           errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg + fromToErrMsg;
-             
+			}
 
-             if (errorMsg) {
-                 alert(errorMsg);
-                 // エラー
-                 return false;
-             }
+			// エラーメッセージ	3/5 シフト名とシンボルのエラーメッセージ追加(高橋)
+		}
+		errorMsg = startTimeErrMsg + endTimeErrMsg + breakTimeErrMsg
+				+ fromToErrMsg;
 
-             document.forms[0].submit();
-    		
-    	}
+		if (errorMsg) {
+			alert(errorMsg);
+			// エラー
+			return false;
+		}
+
+		document.forms[0].submit();
+
+	}
 
 	/**
 	 * 検索
@@ -103,7 +116,6 @@ function regist() {
 	function submitSearch() {
 		doSubmit('/kikin/kinmuJissekiNyuryokuKakuninSearch.do');
 	}
-
 </script>
 <title>勤務実績入力画面</title>
 
@@ -188,7 +200,7 @@ function regist() {
 									<%
 									if (DayOfWeek.SATURDAY.getRyaku().equals(youbi)) {
 										color = "fontBlue";
-									} else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi) || ((boolean)shukujitsuFlg)) {
+									} else if (DayOfWeek.SUNDAY.getRyaku().equals(youbi) || ((boolean) shukujitsuFlg)) {
 										color = "fontRed";
 									} else {
 										color = "fontBlack";
