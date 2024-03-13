@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import exception.CommonException;
-
+import form.mst.ShiftMstMntBean;
 import business.db.dao.act.KinmuJissekiDao;
 import business.dto.LoginUserDto;
 import business.dto.act.KinmuJissekiDto;
@@ -201,9 +201,10 @@ public class KinmuJissekiLogic {
              * 時間外時間算出のために
              * シフトの時間を取得する。
              */
-            String startTimeShift = kinmuJissekiDto.getStartTimeShift();
-            String endTimeShift = kinmuJissekiDto.getEndTimeShift();
-            String breakTimeShift = kinmuJissekiDto.getBreakTimeShift();
+            ShiftMstMntBean shiftMst = new ShiftMstMntBean();
+            String startTimeShift = shiftMst.getStartTime();
+            String endTimeShift = shiftMst.getEndTime();
+            String breakTimeShift = shiftMst.getBreakTime();
 
             if (CheckUtils.isEmpty(startTimeShift) || CheckUtils.isEmpty(endTimeShift) || CheckUtils.isEmpty(breakTimeShift)) {
                 // シフトがない（休日の場合）
@@ -214,6 +215,34 @@ public class KinmuJissekiLogic {
 
                 // 実働時間を勤務実績Dtoの勤務実績へセット
                 kinmuJissekiDto.setJitsudouTime(jitsudouTime.toString());
+                // 時間外時間を計算する
+                
+                // シフトの開始時間、終了時間、休憩時間を取得し、秒に変換する
+                long startTimeShiftLong = CommonUtils.getSecond(startTimeShift);
+                long endTimeShiftLong = CommonUtils.getSecond(endTimeShift);
+                long breakTimeShiftLong = CommonUtils.getSecond(breakTimeShift);
+                long jikangaiTimeS = jitsudouTimeS - (endTimeShiftLong - startTimeShiftLong - breakTimeShiftLong); // 秒
+
+                if (jikangaiTimeS < 0) {
+                    // 休憩が多かったとき
+                    jikangaiTimeS = 0;
+                }
+
+                // 秒を60で除算する → 分に変換。
+                long jikangaiTimeM = jikangaiTimeS / 60; // 分
+                // 分を60で除算する → 時に変換。
+                long jikangaiTimeH = jikangaiTimeM / 60; // 時
+                // 分を60で除算したときの余り → 分を算出する。
+                jikangaiTimeM = jikangaiTimeM % 60; // 余りが分になる
+
+                // 算出した値を画面へ表示する形式にする hh:mm
+                StringBuffer jikangaiTime = new StringBuffer();
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(jikangaiTimeH), 2));
+                jikangaiTime.append(colon);
+                jikangaiTime.append(CommonUtils.padWithZero(String.valueOf(jikangaiTimeM), 2));
+
+                // 時間外時間を勤務実績Dtoの時間外へセット
+                kinmuJissekiDto.setJikangaiTime(jikangaiTime.toString());
             }
         }
     }
