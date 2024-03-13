@@ -96,7 +96,7 @@ if (listSize > intShowLength) {
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table align="center"><!--No104. 3/13  valign="topalign="center"追加（リン） -->
           <tr>
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/tsukibetsuShiftNyuuryokuBack.do')" />
@@ -110,10 +110,10 @@ if (listSize > intShowLength) {
           </tr>
         </table>
       </div>
-      <div id="gymBody" style="overflow: hidden;">
+      <div id="gymBody" style="overflow: hidden;"  > 
         <html:form action="/tsukibetsuShiftNyuuryokuInit" >
-          <div style="margin-left:50px;">
-            <div style="height: 25px;">
+          <div ><!--No104. 3/13  <!--No104. 3/13  valign="topalign="center"削除（リン） -->
+            <div style="height: 25px;margin-right:800px;" align="center"><!--No104. 3/13  margin-right:800px; & valign="topalign="center"追加（リン） -->
               表示年月：
               <bean:define id="sessionYearMonth" name="tsukibetsuShiftNyuuryokuForm" property="yearMonth" type="String"/>
               <html:select property="yearMonth" name="tsukibetsuShiftNyuuryokuForm"  onchange="submitSearch()">
@@ -127,10 +127,10 @@ if (listSize > intShowLength) {
               <bean:write name="tsukibetsuShiftNyuuryokuForm" property="cntPage"/>/
               <bean:write name="tsukibetsuShiftNyuuryokuForm" property="maxPage"/>
             </div>
-            <table width="1100px" cellpadding="0" cellspacing="0">
+            <table width="1100px" cellpadding="0" cellspacing="0" align="center">
               <tr>
                 <td width="150px" valign="top">
-                  <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
+                  <table class="tblHeader" border="1" cellpadding="0" cellspacing="0" align="center"><!--No104. 3/13  valign="topalign="center"追加（リン） -->
                     <tr height="<%=heightSize %>px">
                       <td width="150px" align="center">
                         &nbsp;
@@ -544,21 +544,21 @@ if (listSize > intShowLength) {
             </table>
           </div>
         </html:form>
-        <div style="margin-left:50px;">
+        <div style="margin-right:450px;" align="center"> <!--No104. 3/13  style="margin-right:450px;" align="center"追加（リン） -->
           <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
           <input value="基本シフト反映" type="button" class="lngButton" onclick = "submitShukkinKihon()" />
           <input value="出勤希望日反映" type="button" class="lngButton"  onclick="submitShukkinKibou()" />
         </div>
-      </div>
+      </div> 
       <div id="footer">
-        <table>
+        <table align="center"><!--No104. 3/13  valign="topalign="center"追加（リン） -->
           <tr>
             <td id="footLeft">
             </td>
             <td id="footCenter" style="text-align: right;">
 
             </td>
-            <td id="footRight">
+            <td id="footRight" style="display: flex;justify-content: flex-start;margin-left:200px;"><!--No104. 3/13 style="display: flex;justify-content: flex-start;margin-left:200px;"追加（リン） -->
               <input value="登録" type="button" class="smlButton"  onclick="submitRegist()" />
             </td>
           </tr>
