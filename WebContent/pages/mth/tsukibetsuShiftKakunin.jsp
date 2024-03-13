@@ -89,7 +89,7 @@ if (listSize > intShowLength) {
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<table>
+			<table style="margin-left: auto; margin-right: auto;"><%-- 3/13 全体を画面中央配置へ修正（高橋） style以下を追加 --%>
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
 						class="smlButton"
@@ -100,7 +100,7 @@ if (listSize > intShowLength) {
 				</tr>
 			</table>
 		</div>
-		<div id="gymBody" style="overflow: hidden;">
+		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center;"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
 			<html:form action="/shukkinKibouKakuninInit">
 				<div style="margin-left: 50px;">
 					<div style="height: 25px;">
@@ -146,7 +146,7 @@ if (listSize > intShowLength) {
 								<!--テーブルがズレていたので修正：valign="top"を追加（リン）  --> <!--テーブルがズレていたので修正（リン）  -->
 								<!-- 元： 「height:」＝＞修正：「height:375」（リン）  -->
 								<div
-									style="overflow-x: auto;overflow-y: hidden; width:985px;height:375 <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
+									style="overflow-x: auto;overflow-y: hidden; width:985px;height:375 + <%=heightSize * (listSize + 2) + 18 %>px; text-align:center;">
 									<table class="tblHeader" border="1" cellpadding="0"
 										cellspacing="0">
 										<tr height="<%=heightSize %>px">
@@ -326,11 +326,12 @@ if (listSize > intShowLength) {
 						</tr>
 					</table>
 				</div>
-			</html:form>
-			<div style="margin-left: 50px;">
+			<p style="margin-left: 50px;"><%-- 3/13 中央揃えに関連してdiv→ｐへ：form内へ移動（高橋） --%>
 				<input value="凡例表示" type="button" class="lngButton"
 					onclick="openWindow()" />
-			</div>
+			</p>
+			</html:form>
+			
 		</div>
 		<div id="footer">
 			<table>
