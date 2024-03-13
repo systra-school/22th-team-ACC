@@ -74,7 +74,7 @@ if (hibetsuShiftBeanListSize < 6) {
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<table>
+			<table style="margin-left: auto; margin-right: auto;"><%-- 3/13 全体を画面中央配置へ修正（高橋） style以下を追加 --%>
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
 						class="smlButton" onclick="doSubmit('/kikin/hibetsuShiftBack.do')" />
@@ -85,8 +85,8 @@ if (hibetsuShiftBeanListSize < 6) {
 				</tr>
 			</table>
 		</div>
-		<div id="gymBody" style="overflow: hidden;">
-			<div style="margin-left: 80px;">
+		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center;"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
+			<div style="margin-left: 0px;"><%-- 3/13 中央揃え修正（高橋） margin-left:80→0px;--%>
 				<html:form>
 					<div style="height: 20px">
 						表示年月：
