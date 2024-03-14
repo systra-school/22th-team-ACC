@@ -208,7 +208,18 @@ public class KinmuJissekiNyuryokuKakuninRegistAction extends Action {
             kinmuJissekiDto.setEndTime(bean.getEndTime()); // 終了時間
             kinmuJissekiDto.setBreakTime(bean.getBreakTime()); // 休憩時間
             kinmuJissekiDto.setBikou(bean.getBikou()); // 備考
-
+            
+            if(kinmuJissekiDto.getStartTimeShift() == null) {
+            	kinmuJissekiDto.setStartTimeShift("00:00");
+            }
+            
+            if(kinmuJissekiDto.getEndTimeShift() == null) {
+            	kinmuJissekiDto.setEndTimeShift("00:00");
+            }
+            
+            if(kinmuJissekiDto.getBreakTimeShift() == null) {
+            	kinmuJissekiDto.setBreakTimeShift("00:00");
+            }
             dtoList.add(kinmuJissekiDto);
 
         }

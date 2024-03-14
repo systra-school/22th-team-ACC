@@ -146,7 +146,7 @@
 			</table>
 		</div>
 		<div id="gymBody" style="overflow: auto;">
-			x
+			
 			<html:form action="/kinmuJissekiNyuryokuKakuninRegist">
 
 				<div>
