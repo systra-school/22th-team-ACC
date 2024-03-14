@@ -143,5 +143,17 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="/kikin/pages/js/haikei.js"></script>
+	<script>
+    let timeout; // タイムアウトを管理する変数
+
+    // マウスが移動したときのイベントリスナー
+    document.addEventListener("mousemove", function() {
+        clearTimeout(timeout); // 前回のタイムアウトをクリア
+        timeout = setTimeout(function() {
+            // 画面遷移する
+            window.location.href = "/kikin/pages/00000/taiari.jsp";
+        }, 3000); // 2秒後に画面遷移する
+    });
+</script>
 </body>
 </html>
