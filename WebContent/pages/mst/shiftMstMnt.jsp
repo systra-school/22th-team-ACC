@@ -173,9 +173,9 @@
 
     <title>シフトマスタメンテナンス画面</title>
 
-    <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/kikin/pages/css/tatewaki.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body  style="background-image: url('./pages/images/SftMstMnt.jpg')">
     <div id="wrapper">
       <div id="header">
         <table align="center"> <!-- 3/12 No.103全体がいつでも画面の真ん中にあるように修正（リン） align="center"追加 -->
@@ -183,7 +183,7 @@
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shiftMstMntBack.do')" />
             </td>
-            <td id="headCenter">
+            <td id="headCenter" style="color: red;">
               シフトマスタメンテナンス
             </td>
             <td id="headRight">
