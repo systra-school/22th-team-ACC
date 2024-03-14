@@ -54,7 +54,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table align="center"><!-- 3/14 align="center"追加 リン -->
           <tr>
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shukkinKibouKakuninBack.do')" />
@@ -68,8 +68,8 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
-        <div style="margin-left:10px;">
+      <div id="gymBody"  style="overflow: hidden;text-align:center;"><!-- 3/14 （リン） -->
+        <div style="height: 25px;margin-right:800px;" align="center"><!-- 3/14  margin-right:800px; & valign="topalign="center"追加（リン） -->
           <html:form action="/shukkinKibouKakuninInit" >
             表示年月：
             <html:select name="shukkinKibouKakuninForm" property="yearMonth" onchange="submitSearch()">
@@ -82,7 +82,8 @@
             <html:link href="/kikin/shukkinKibouKakuninPage.do?paging=next">次へ</html:link>
             <bean:write name="shukkinKibouKakuninForm" property="cntPage"/>/
             <bean:write name="shukkinKibouKakuninForm" property="maxPage"/>
-            <div>
+          </div >
+            <div style="overflow-x: auto;overflow-y: hidden;margin-left:150px;border-bottom: 0px solid #000000;border-right: 1px solid #000000;position: sticky;top: 0;left: 0;z-index: 1;"  align="center"><!-- 3/14 追加（リン） -->
               <table width="1390px" cellpadding="0" cellspacing="0">
                   <td width="150px" valign="top">
                     <table border="1" cellpadding="0" cellspacing="0">
@@ -335,18 +336,18 @@
                             <% } %>
                           </tr>
                         </logic:iterate>
-                      </table>
-                    </div>
+                      </table>                  
                   </td>
                 </tr>
               </table>
             </div>
           </html:form>
-          <div style="margin-left:50px;">
-            <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
+          <br>
           </div>
-        </div>
-      </div>
+          <div  style="height: 25px;margin-right:800px;" align="center"><!-- 3/14  margin-right:800px; & valign="topalign="center"追加（リン） -->
+            <input value="凡例表示" type="button" class="lngButton"  onclick="openWindow()" />
+          </div>       
+     
       <div id="footer">
         <table>
           <tr>
