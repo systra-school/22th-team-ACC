@@ -122,6 +122,11 @@
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+  
+  	<div id="wrapper2">
+		<canvas id="canvas"></canvas>
+	</div>
+  
     <div id="header">
       <div style="display: inline;">
         社員マスタメンテナンス
@@ -191,5 +196,9 @@
         <input value="更新" type="button" class="smlButton"  onclick="shainMstMntUpdate()" />
       </div>
     </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/kikin/pages/js/haikei_shain.js"></script>
+    
   </body>
 </html>

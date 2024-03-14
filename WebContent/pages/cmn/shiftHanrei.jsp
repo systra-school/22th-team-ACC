@@ -35,6 +35,12 @@
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+  
+  
+	<div id="wrapper2">
+		<canvas id="canvas"></canvas>
+	</div>
+  
     <div id="wrapper">
       <div id="header">
         <table>
@@ -52,7 +58,7 @@
       <div id="gymBody">
         <html:form>
           <%-- –}—á --%>
-          <div id="hanrei" style="width:470px; margin-left:15px; float:left">
+          <div id="hanrei" style="width:470px; margin-left:20px; float:left">
             <div>
               <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
                 <tr>
@@ -107,5 +113,10 @@
         </table>
       </div>
     </div>
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/kikin/pages/js/haikei.js"></script>
+	
+    
   </body>
 </html>
