@@ -43,7 +43,7 @@ String color = "";
 	type="text/css" />
 </head>
 <body>
-	<div id="wrapper">
+	<div id="wrapper" class="wrapper">
 		<div id="header">
 			<table width="100%">
 				<tr>

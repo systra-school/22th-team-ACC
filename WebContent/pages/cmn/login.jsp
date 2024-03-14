@@ -5,6 +5,7 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 <html>
+
 <head>
 
 <meta http-equiv="Pragma" content="no-cache">
@@ -20,20 +21,26 @@
 window.onload = function() {
     var error = '<%=request.getAttribute("error")%>';
 
-    if(error && error.toLowerCase() === 'true'){
-        alert(getMessageCodeOnly("E-MSG-000002"));
-    }
-}
-    
-    </script>
+		if (error && error.toLowerCase() === 'true') {
+			alert(getMessageCodeOnly("E-MSG-000002"));
+		}
+	}
+</script>
 <title>ログイン画面Login</title>
 <link href="/kikin/pages/css/common.css" rel="stylesheet"
 	type="text/css" />
 </head>
 <body>
+
+
+	<div id="wrapper2">
+		<canvas id="canvas"></canvas>
+	</div>
+	
 	<div id="wrapper">
 		<div id="header">
-			<table align="center"> <!-- 3/12「ログイン」はいつでも真ん中にあるように修正（リン） align="center"追加-->
+			<table align="center">
+				<!-- 3/12「ログイン」はいつでも真ん中にあるように修正（リン） align="center"追加-->
 				<tr>
 					<td id="headLeft"></td>
 					<td id="headCenter">ログイン</td>
@@ -68,4 +75,11 @@ window.onload = function() {
 		</div>
 
 	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/kikin/pages/js/haikei.js"></script>
+	
 </body>
+
+
+</html>
