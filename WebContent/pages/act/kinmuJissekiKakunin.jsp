@@ -43,9 +43,9 @@ String color = "";
 	type="text/css" />
 </head>
 <body>
-	<div id="wrapper" class="wrapper">
+	<div id="wrapper" >
 		<div id="header">
-			<table width="100%">
+			<table align="center">
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
 						class="smlButton"
@@ -53,24 +53,16 @@ String color = "";
 					<td id="headCenter">勤務実績確認</td>
 					<td id="headRight"><input value="ログアウト" type="button"
 						class="smlButton" onclick="logout()" />
-					<div style="float: left; width: 244px; text-align: left;">
-					<html:form action="/shainMstMntRegist">
-						社員名：
-						<html:select name="kinmuJissekiKakuninForm" property="shainId"
-							onchange="submitSearch()">
-							<html:optionsCollection name="kinmuJissekiKakuninForm"
-								property="shainCmbMap" value="key" label="value" />
-						</html:select>
-					</div>	
+					
 					</td>
 				</tr>
 			</table>
 		</div>
+		<div><br></div>
 		<div id="gymBody">
 			
-				<div style="float: left; width: 100%;">
-					<div
-						style="float: left; width: 844px; text-align: left; margin-left: 100px;">
+				<div style="float: left; width: 100%;" >
+					<div style="float: left; width: 844px; text-align: left;  margin-left: 120px;">
 						表示年月：
 						<html:select name="kinmuJissekiKakuninForm" property="yearMonth"
 							onchange="submitSearch()">
@@ -78,6 +70,16 @@ String color = "";
 								property="yearMonthCmbMap" value="key" label="value" />
 						</html:select>
 					</div>
+					<div style="float: left; width: 244px; text-align: left; ">
+					<html:form action="/shainMstMntRegist">
+					
+						社員名：
+						<html:select name="kinmuJissekiKakuninForm" property="shainId"
+							onchange="submitSearch()">
+							<html:optionsCollection name="kinmuJissekiKakuninForm"
+								property="shainCmbMap" value="key" label="value" />
+						</html:select>
+					</div>	
 					
 				</div>
 				<div style="overflow: auto; width: 1088px; margin-left: 100px;">
