@@ -42,6 +42,11 @@
     <link href="/kikin/pages/css/common.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+  
+  	<div id="wrapper2">
+		<canvas id="canvas"></canvas>
+	</div>
+  
     <div id="wrapper">
       <div id="header">
         <table style="margin-left: auto; margin-right: auto;"><%-- 3/13 全体を画面中央配置へ修正（高橋） style以下を追加 --%>
@@ -198,5 +203,11 @@
         </table>
       </div>
     </div>
+    
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/kikin/pages/js/haikei_bse_ksft.js"></script>
+	
+    
   </body>
 </html>
