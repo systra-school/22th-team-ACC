@@ -97,7 +97,7 @@
   <body>
     <div id="wrapper">
       <div id="header">
-        <table>
+        <table style="margin-left: auto; margin-right: auto;"><%-- 3/14 全体を画面中央配置へ修正（高橋） style以下を追加 --%>
           <tr>
             <td id="headLeft">
               <input value="戻る" type="button" class="smlButton"  onclick="doSubmit('/kikin/shainMstMntRegistBack.do')" />
@@ -111,9 +111,9 @@
           </tr>
         </table>
       </div>
-      <div id="gymBody">
+      <div id="gymBody" style="display: flex; justify-content: center;"><%-- 3/14 中央揃え修正（高橋） display以下追加 --%>
         <html:form action="/shainMstMntRegist" >
-          <div style="width: 650px;text-align: left; margin-left:300px;">
+          <div style="width: 650px;text-align: left; margin-left:0px;"><%--　3/14 中央揃え修正（高橋） margin-left:300→0px --%>
             <table class="tblHeader" border="1" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="150px" align="center">
@@ -131,7 +131,7 @@
               </tr>
             </table>
           </div>
-          <div style="overflow: auto; height: 440px; width: 650px; margin-left:300px; ">
+          <div style="overflow: auto; height: 440px; width: 650px; margin-left:0px; "><%--　3/14 中央揃え修正（高橋） margin-left:300→0px --%>
             <table class="tblBody" border="1" cellpadding="0" cellspacing="0">
               <tr>
                 <td width="150px"  align="center">
