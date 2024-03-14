@@ -68,24 +68,24 @@ if (hibetsuShiftBeanListSize < 6) {
 </script>
 <title>日別シフト確認画面</title>
 
-<link href="/kikin/pages/css/common.css" rel="stylesheet"
+<link href="/kikin/pages/css/tatewaki.css" rel="stylesheet"
 	type="text/css" />
 </head>
-<body>
+<body  style="background-image: url('./pages/images/day_kakunin.jpg')">
 	<div id="wrapper">
-		<div id="header">
+		<div id="header" style ="background-color: rgba(102, 204, 255, 0.05)">
 			<table style="margin-left: auto; margin-right: auto;"><%-- 3/13 全体を画面中央配置へ修正（高橋） style以下を追加 --%>
 				<tr>
 					<td id="headLeft"><input value="戻る" type="button"
 						class="smlButton" onclick="doSubmit('/kikin/hibetsuShiftBack.do')" />
 					</td>
-					<td id="headCenter">日別シフト確認画面</td>
+					<td id="headCenter" style="color: red;">日別シフト確認画面</td>
 					<td id="headRight"><input value="ログアウト" type="button"
 						class="smlButton" onclick="logout()" /></td>
 				</tr>
 			</table>
 		</div>
-		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center;"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
+		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center; background-color: rgba(102, 204, 255, 0.05)"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
 			<div style="margin-left: 0px;"><%-- 3/13 中央揃え修正（高橋） margin-left:80→0px;--%>
 				<html:form>
 					<div style="height: 20px">
@@ -1333,7 +1333,7 @@ if (hibetsuShiftBeanListSize < 6) {
 				</html:form>
 			</div>
 		</div>
-		<div id="footer">
+		<div id="footer" style="background-color: rgba(102, 204, 255, 0.05);">
 			<table>
 				<tr>
 					<td id="footLeft"></td>

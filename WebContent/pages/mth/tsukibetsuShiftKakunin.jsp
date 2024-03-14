@@ -83,7 +83,7 @@ if (listSize > intShowLength) {
     </script>
 <title>月別シフト確認画面</title>
 
-<link href="/kikin/pages/css/common.css" rel="stylesheet"
+<link href="/kikin/pages/css/tatewaki.css" rel="stylesheet"
 	type="text/css" />
 </head>
 <body style="background-image: url('./pages/images/Mth_kakunin.jpg')">
@@ -100,7 +100,7 @@ if (listSize > intShowLength) {
 				</tr>
 			</table>
 		</div>
-		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center; background-image: url('./pages/images/Mth_kakunin.jpg')"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
+		<div id="gymBody" style="overflow: hidden; display: flex; justify-content: center;"><%-- 3/13 中央揃え修正（高橋） display以下追加 --%>
 			<html:form action="/shukkinKibouKakuninInit">
 				<div style="margin-left: 50px;">
 					<div style="height: 25px;">
